@@ -41,11 +41,11 @@ if ($mode === ROSTER_MODE_PRINT) {
 $returnurl = new moodle_url('/course/view.php', array('id' => $id));
 
 // Check permissions.
-$coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+$coursecontext = context_course::instance($course->id);
 require_capability('report/roster:view', $coursecontext);
 
 // Get all the users.
-$userlist = get_enrolled_users($coursecontext, '', 0, 'u.id, u.firstname, u.lastname, u.picture, u.imagealt, u.email');
+$userlist = get_enrolled_users($coursecontext, '', 0, user_picture::fields('u'));
 $data = array();
 foreach ($userlist as $user) {
     $item = $OUTPUT->user_picture($user, array('size' => 100, 'courseid' => $course->id));
