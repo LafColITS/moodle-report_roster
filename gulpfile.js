@@ -9,6 +9,7 @@ var gulp    = require('gulp'),
     git     = require('gulp-git'),      // Git wrapper.
     jshint  = require('gulp-jshint'),   // Lints JS.
     phplint = require('phplint'),       // Lints PHP.
+    phpcs   = require('gulp-phpcs'),    // Moodle standards.
     replace = require('gulp-replace');  // Text replacer.
 
 // Parses the package.json file. We use this because its values
@@ -16,6 +17,15 @@ var gulp    = require('gulp'),
 var getPackageJSON = function() {
   return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 };
+
+// Moodle coding standards.
+gulp.task('standards', function() {
+  return gulp.src(['*.php', './db/**/*.php', './lang/**/*.php'])
+    .pipe(phpcs({
+      standard: 'moodle'
+    }))
+    .pipe(phpcs.reporter('log'));
+});
 
 // Lint associated PHP files.
 gulp.task('phplint', function() {
