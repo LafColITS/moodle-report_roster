@@ -10,7 +10,16 @@ var gulp    = require('gulp'),
     jshint  = require('gulp-jshint'),   // Lints JS.
     phplint = require('phplint'),       // Lints PHP.
     phpcs   = require('gulp-phpcs'),    // Moodle standards.
+    less    = require('gulp-less'),     // Compile less into CSS.
+    csslint = require('gulp-csslint'),  // Lint CSS.
     replace = require('gulp-replace');  // Text replacer.
+
+// Paths.
+var paths = {
+  scripts: ['./yui/roster/*.js'],
+  styles: ['./less/styles.less'],
+  php: ['./*.php', './db/**/*.php', './lang/**/*.php']
+};
 
 // Parses the package.json file. We use this because its values
 // change during execution.
@@ -18,9 +27,19 @@ var getPackageJSON = function() {
   return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 };
 
+// Compile and lint CSS.
+gulp.task('styles', function() {
+  gulp.src(paths.styles)
+    .pipe(less())
+    .pipe(csslint({
+    }))
+    .pipe(csslint.reporter())
+    .pipe(gulp.dest('./'));
+});
+
 // Moodle coding standards.
 gulp.task('standards', function() {
-  return gulp.src(['*.php', './db/**/*.php', './lang/**/*.php'])
+  gulp.src(paths.php)
     .pipe(phpcs({
       standard: 'moodle'
     }))
@@ -29,7 +48,7 @@ gulp.task('standards', function() {
 
 // Lint associated PHP files.
 gulp.task('phplint', function() {
-  return phplint(['*.php', './db/**/*.php', './lang/**/*.php']);
+  return phplint(paths.php);
 });
 
 // Lint associated Javascripts.
@@ -38,7 +57,7 @@ gulp.task('scripts', function() {
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
   .pipe(gulp.dest('./'));
-  gulp.src('./yui/roster/*.js')
+  gulp.src(paths.scripts)
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
   .pipe(gulp.dest('./yui/roster'));
