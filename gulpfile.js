@@ -87,3 +87,13 @@ gulp.task('tag', function() {
   git.tag('v'+pkg.version, pkg.description + ' v' + pkg.version, function(err) {
   });
 });
+
+// Watch.
+gulp.task('watch', function() {
+  gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(paths.php, ['standards', 'phplint']);
+  gulp.watch(paths.styles, ['styles']);
+});
+
+// Default task.
+gulp.task('default', ['watch', 'scripts', 'standards', 'phplint', 'styles']);
