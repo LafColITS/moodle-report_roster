@@ -22,6 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die;
+
 function report_roster_extend_navigation_course($navigation, $course, $context) {
     if (has_capability('report/roster:view', $context)) {
         $url = new moodle_url('/report/roster/index.php', array('id' => $course->id));

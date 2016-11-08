@@ -5,8 +5,8 @@
 }
 .report-roster li {
   display: inline-block;
-  max-width: 100px;
   margin-bottom: 5px;
+  max-width: 100px;
   vertical-align: top;
 }
 .report-roster li span {

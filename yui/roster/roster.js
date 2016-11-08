@@ -1,7 +1,6 @@
 YUI.add('moodle-report_roster-roster', function(Y) {
     M.report_roster = {
         init : function() {
-            //Y.all("ul.roster-report li span").setStyle("display", "none");
             var toggle = Y.one('button#report-roster-toggle');
             toggle.on('click', function () {
                 if (toggle.get('innerHTML') === M.util.get_string('learningmodeoff' ,'report_roster')) {
