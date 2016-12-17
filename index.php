@@ -29,6 +29,7 @@ $id     = required_param('id', PARAM_INT);
 $mode   = optional_param('mode', ROSTER_MODE_DISPLAY, PARAM_TEXT);
 $group  = optional_param('group', 0, PARAM_INT);
 $course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+$order  = optional_param('order', ROSTER_ORDER_FULLNAME, PARAM_TEXT);
 
 require_login($course);
 
@@ -46,7 +47,37 @@ $coursecontext = context_course::instance($course->id);
 require_capability('report/roster:view', $coursecontext);
 
 // Get all the users.
-$userlist = get_enrolled_users($coursecontext, '', $group, user_picture::fields('u', null, 0, 0, true));
+$userlist = get_enrolled_users($coursecontext, '', $group, 'u.idnumber, '.user_picture::fields('u', null, 0, 0, true));
+
+// Change display order
+switch ($order) {
+    case ROSTER_ORDER_FULLNAME:
+        // Default order by "lastname, firstname, id"
+        // Do nothing
+        break;
+        
+    case ROSTER_ORDER_IDNUMBER:
+        // Order by "idnumber, id"
+        $userlistbyidnumber = array();
+        foreach ($userlist as $user) {
+            $userlistbyidnumber[$user->idnumber.'.'.$user->id] = $user;
+        }
+        $useridnumberlist = array_keys($userlistbyidnumber);
+        
+        if (natcasesort($useridnumberlist) === true) {
+            $ordered_userlist = array();
+            foreach ($useridnumberlist as $idnumber) {
+                $ordered_userlist[] = $userlistbyidnumber[$idnumber];
+            }
+        }
+        $userlist = $ordered_userlist;
+        break;
+        
+    default:
+        // Undefined order
+        // TODO: throw Exception or something
+        break;
+}
 
 // Get suspended users.
 $suspended = get_suspended_userids($coursecontext);
@@ -55,6 +86,7 @@ $data = array();
 foreach ($userlist as $user) {
     if (!in_array($user->id, $suspended)) {
         $item = $OUTPUT->user_picture($user, array('size' => 100, 'courseid' => $course->id));
+        $item .= $user->idnumber != '' ? html_writer::tag('span', $user->idnumber) : '';
         $item .= html_writer::tag('span', fullname($user));
         $data[] = $item;
     }
@@ -72,6 +104,6 @@ $PAGE->requires->strings_for_js(array(
 // Display the roster to the user.
 echo $OUTPUT->header();
 echo html_writer::tag('button', get_string('learningmodeoff', 'report_roster'), array('id' => 'report-roster-toggle'));
-echo report_roster_output_action_buttons($id, $group, $mode, $PAGE->url);
+echo report_roster_output_action_buttons($id, $group, $mode, $order, $PAGE->url);
 echo html_writer::alist($data, array('class' => 'report-roster'));
 echo $OUTPUT->footer();

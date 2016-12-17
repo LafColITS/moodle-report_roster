@@ -27,6 +27,9 @@ defined('MOODLE_INTERNAL') || die;
 define('ROSTER_MODE_DISPLAY', 'display');
 define('ROSTER_MODE_PRINT', 'print');
 
+define('ROSTER_ORDER_FULLNAME', 'fullname');
+define('ROSTER_ORDER_IDNUMBER', 'idnumber');
+
 function report_roster_get_group_options($id) {
     $groupsfromdb = groups_get_all_groups($id);
     $groups = array();
@@ -36,26 +39,41 @@ function report_roster_get_group_options($id) {
     return $groups;
 }
 
-function report_roster_output_action_buttons($id, $group, $mode, $url) {
+function report_roster_output_action_buttons($id, $group, $mode, $order, $url) {
     global $OUTPUT;
 
     $displayoptions = array(
         ROSTER_MODE_DISPLAY => get_string('webmode', 'report_roster'),
         ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'));
     $groups = report_roster_get_group_options($id);
-
+    $orderoptions = array(
+        ROSTER_ORDER_FULLNAME => get_string('orderfullname', 'report_roster'),
+        ROSTER_ORDER_IDNUMBER => get_string('orderidnumber', 'report_roster'));
+    
     $groupurl = clone $url;
-    $groupurl->params(array('mode' => $mode));
+    $groupurl->params(array('mode' => $mode, 'order' => $order));
     $modeurl = clone $url;
-    $modeurl->params(array('group' => $group));
-
+    $modeurl->params(array('group' => $group, 'order' => $order));
+    $orderurl = clone $url;
+    $orderurl->params(array('mode' => $mode, 'group' => $group));
+    
+    $url->params(array('mode' => $mode, 'group' => $group, 'order' => $order));
+    
+    $html = html_writer::start_tag('div');
+    
     $select = new single_select($groupurl, 'group', $groups, $group, array('' => get_string('allusers', 'report_roster')));
     $select->label = get_string('group');
-    $html = html_writer::start_tag('div');
     $html .= $OUTPUT->render($select);
+    
     $select = new single_select($modeurl, 'mode', $displayoptions, $mode);
     $select->label = get_string('displaymode', 'report_roster');
     $html .= $OUTPUT->render($select);
+    
+    $select = new single_select($orderurl, 'order', $orderoptions, $order);
+    $select->label = get_string('displayorder', 'report_roster');
+    $html .= $OUTPUT->render($select);
+    
     $html .= html_writer::end_tag('div');
+    
     return $html;
 }
