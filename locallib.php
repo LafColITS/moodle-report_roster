@@ -44,11 +44,13 @@ function report_roster_output_action_buttons($id, $group, $mode, $order, $url) {
 
     $displayoptions = array(
         ROSTER_MODE_DISPLAY => get_string('webmode', 'report_roster'),
-        ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'));
+        ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'),
+        );
     $groups = report_roster_get_group_options($id);
     $orderoptions = array(
         ROSTER_ORDER_FULLNAME => get_string('orderfullname', 'report_roster'),
-        ROSTER_ORDER_IDNUMBER => get_string('orderidnumber', 'report_roster'));
+        ROSTER_ORDER_IDNUMBER => get_string('orderidnumber', 'report_roster'),
+        );
     
     $groupurl = clone $url;
     $groupurl->params(array('mode' => $mode, 'order' => $order));

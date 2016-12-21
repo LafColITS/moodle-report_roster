@@ -22,8 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__) . '/../../config.php');
-require_once(dirname(__FILE__) . '/locallib.php');
+require_once(__DIR__ . '/../../config.php');
+require_once(__DIR__ . '/locallib.php');
 
 $id     = required_param('id', PARAM_INT);
 $mode   = optional_param('mode', ROSTER_MODE_DISPLAY, PARAM_TEXT);
@@ -60,7 +60,9 @@ switch ($order) {
         // Order by "idnumber, id"
         $userlistbyidnumber = array();
         foreach ($userlist as $user) {
-            $userlistbyidnumber[$user->idnumber.'.'.$user->id] = $user;
+            $index  = $user->idnumber != '' ? $user->idnumber : '0';
+            $index .= $index . '.' . $user->id;
+            $userlistbyidnumber[$index] = $user;
         }
         $useridnumberlist = array_keys($userlistbyidnumber);
         
@@ -75,7 +77,7 @@ switch ($order) {
         
     default:
         // Undefined order
-        // TODO: throw Exception or something
+        throw new coding_exception(get_string('exceptionundefinedorder', 'report_roster'));
         break;
 }
 

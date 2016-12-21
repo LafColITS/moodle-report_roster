@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 $string['allusers'] = 'All users';
 $string['displaymode'] = 'Display mode';
 $string['displayorder'] = 'Display order';
+$string['exceptionundefinedorder'] = 'Undefined display order';
 $string['learningmodeoff'] = 'Learning mode off';
 $string['learningmodeon'] = 'Learning mode on';
 $string['orderfullname'] = 'Order by Fullname';
