@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+v1.1.2 (20170424)
+
+- [Tests] Update Behat tests for Moodle 3.3
+
 v1.1.1 (2015111700)
 
 - [Tests] Add Behat test coverage
