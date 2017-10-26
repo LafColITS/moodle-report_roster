@@ -19,11 +19,6 @@ addons:
       - oracle-java8-set-default
 
 env:
- global:
-  - IGNORE_NAMES=package.json,gulpfile.js,node_modules
-  - MOODLE_START_BEHAT_SERVERS=NO
-  - MOODLE_DIR=/home/travis/build/moodle
-  - MOODLE_SELENIUM_JAR=/home/travis/build/moodle/selenium.jar
  matrix:
   - DB=pgsql MOODLE_BRANCH=MOODLE_33_STABLE
   - DB=pgsql MOODLE_BRANCH=master
