@@ -30,6 +30,7 @@ $string['learningmodeoff'] = 'Learning mode off';
 $string['learningmodeon'] = 'Learning mode on';
 $string['pluginname'] = 'Roster';
 $string['printmode'] = 'Printable';
+$string['privacy:metadata'] = 'The roster report only shows data stored in other locations.';
 $string['roster'] = 'Roster';
 $string['roster:view'] = 'View roster course report';
 $string['webmode'] = 'Web report';
