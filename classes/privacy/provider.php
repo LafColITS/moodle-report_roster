@@ -15,22 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_roster', language 'en'
+ * Privacy implementation for report_roster.
  *
  * @package   report_roster
- * @copyright 2013 Lafayette College ITS
+ * @copyright 2018 Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+namespace report_roster\privacy;
 
-$string['allusers'] = 'All users';
-$string['displaymode'] = 'Display mode';
-$string['learningmodeoff'] = 'Learning mode off';
-$string['learningmodeon'] = 'Learning mode on';
-$string['pluginname'] = 'Roster';
-$string['printmode'] = 'Printable';
-$string['privacy:metadata'] = 'The roster report only shows data stored in other locations.';
-$string['roster'] = 'Roster';
-$string['roster:view'] = 'View roster course report';
-$string['webmode'] = 'Web report';
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Privacy subsystem for report_roster implementing null_provider.
+ *
+ * @copyright  2018 Lafayette College ITS
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() {
+        return 'privacy:metadata';
+    }
+}
