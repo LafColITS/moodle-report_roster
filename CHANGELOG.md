@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.3.1 - 2017-05-13
+
+- Updated for GDPR compliance
+
 ## 3.3.0 - 2017-01-10
 
 - Changed version numbering to match stable version
