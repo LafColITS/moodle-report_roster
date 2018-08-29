@@ -37,7 +37,7 @@ Feature: In the roster report a teacher may filter students by group
   Scenario: Filter by groups
     Given I log in as "teacher1"
     And I am on "Course 1" course homepage
-    And I navigate to "Roster" node in "Course administration > Reports"
+    And I navigate to "Reports > Roster" in current page administration
     And I should see "Sally Student"
     And I should see "Serena Student"
     And the "group" select box should contain "All users"
