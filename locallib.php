@@ -27,6 +27,13 @@ defined('MOODLE_INTERNAL') || die;
 define('ROSTER_MODE_DISPLAY', 'display');
 define('ROSTER_MODE_PRINT', 'print');
 
+/**
+ * Retrieves the groups for the course and formats them for use in a drop-down
+ * selector.
+ *
+ * @param int $id The course id
+ * @return array The course groups indexed by group id
+ */
 function report_roster_get_group_options($id) {
     $groupsfromdb = groups_get_all_groups($id);
     $groups = array(0 => get_string('allusers', 'report_roster'));
@@ -36,6 +43,15 @@ function report_roster_get_group_options($id) {
     return $groups;
 }
 
+/**
+ * Creates the action buttons (learning mode and groups) used on the report page.
+ *
+ * @param int $id The course id
+ * @param int $group The current active group on the page
+ * @param int $mode The current display mode
+ * @param moodle_url $url The current page URL
+ * @return string The generated HTML
+ */
 function report_roster_output_action_buttons($id, $group, $mode, $url) {
     global $OUTPUT;
 

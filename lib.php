@@ -24,6 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Extends core navigation to display the roster link in the course administration.
+ *
+ * @param navigation_node $navigation The navigation node to extend
+ * @param stdClass        $course The course object
+ * @param context         $context The course context
+ */
 function report_roster_extend_navigation_course($navigation, $course, $context) {
     if (has_capability('report/roster:view', $context)) {
         $url = new moodle_url('/report/roster/index.php', array('id' => $course->id));
