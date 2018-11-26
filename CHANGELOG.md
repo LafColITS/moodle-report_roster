@@ -1,28 +1,32 @@
 # Changelog
 
-## 3.4.0 - 2018-05-13
+## 3.4.1 (November 26, 2018)
+
+- Replaced the YUI Javascript module with an AMD module
+
+## 3.4.0 (May 13, 2018)
 
 - Updated for GDPR compliance
 
-## 3.3.0 - 2017-01-10
+## 3.3.0 (January 10, 2018)
 
 - Changed version numbering to match stable version
 - [Bugfix] Updated the "All users" display in light of [MDL-60675](https://tracker.moodle.org/browse/MDL-60675)
 
-## 1.1.2 - 2017-04-24
+## 1.1.2 (April 24, 2017)
 
 - [Tests] Update Behat tests for Moodle 3.3
 
-## 1.1.1 - 2015-11-17
+## 1.1.1 (November 17, 2015)
 
 - [Tests] Add Behat test coverage
 - [Bugfix] Code cleanup
 
-## 1.1.0 - 2015-01-06
+## 1.1.0 (January 6, 2015)
 
 - [Feature] Add groups filtering
 - [Bugfix] Only show active enrollments
 
-## 1.0.0 - 2013-05-200
+## 1.0.0 (May 29, 2013)
 
 - Initial release
