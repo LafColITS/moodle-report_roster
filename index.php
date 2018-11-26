@@ -63,11 +63,7 @@ foreach ($userlist as $user) {
 // Finish setting up page.
 $PAGE->set_title($course->shortname .': '. get_string('roster' , 'report_roster'));
 $PAGE->set_heading($course->fullname);
-$PAGE->requires->yui_module('moodle-report_roster-roster', 'M.report_roster.init');
-$PAGE->requires->strings_for_js(array(
-        'learningmodeon',
-        'learningmodeoff',
-    ), 'report_roster');
+$PAGE->requires->js_call_amd('report_roster/roster', 'init');
 
 // Display the roster to the user.
 echo $OUTPUT->header();
