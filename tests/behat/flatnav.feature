@@ -7,7 +7,7 @@ Feature: Option to display in Boost flat navigation
   Background:
     Given the following "courses" exist:
       | fullname | shortname | category | groupmode |
-      | Course 1 | C1 | 0 | 1 |
+      | Course 1 | C1        | 0        | 1         |
 
   @javascript
   Scenario: Display in flat navigation
@@ -22,9 +22,9 @@ Feature: Option to display in Boost flat navigation
     And I should see "Roster" in the "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element"
 
     And the following config values are set as admin:
-      | config      | value     | plugin        |
-      | flatnav     | 1         | report_roster |
-      | displayname | Headshots | report_roster |
+      | config      | value          | plugin        |
+      | flatnav     | 1              | report_roster |
+      | displayname | Something Else | report_roster |
     And I set the multiline "report_roster" "flatnav_position" setting as admin to:
     """
     competencies (Competencies)
@@ -35,12 +35,12 @@ Feature: Option to display in Boost flat navigation
     Then "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element" should be visible
     And "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element" should appear before "#nav-drawer > nav > a.list-group-item[data-key=competencies]" "css_element"
     And "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element" should appear after "#nav-drawer > nav > a.list-group-item[data-key=badgesview]" "css_element"
-    And I should see "Headshots" in the "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element"
+    And I should see "Something Else" in the "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element"
 
     And the following config values are set as admin:
-      | config      | value      | plugin        |
-      | flatnav     | 1          | report_roster |
-      | displayname | Head SHOTS | report_roster |
+      | config      | value          | plugin        |
+      | flatnav     | 1              | report_roster |
+      | displayname | Something ELSE | report_roster |
     And I set the multiline "report_roster" "flatnav_position" setting as admin to:
     """
     typocompetencies (Competencies)
@@ -51,4 +51,4 @@ Feature: Option to display in Boost flat navigation
     Then "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element" should be visible
     And "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element" should appear before "#nav-drawer > nav > a.list-group-item[data-key=grades]" "css_element"
     And "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element" should appear after "#nav-drawer > nav > a.list-group-item[data-key=competencies]" "css_element"
-    And I should see "Head SHOTS" in the "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element"
+    And I should see "Something ELSE" in the "#nav-drawer > nav > a.list-group-item[data-key=report_roster]" "css_element"

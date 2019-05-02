@@ -18,7 +18,7 @@
  * This file creates a behat step definition
  *
  * @package    report_roster
- * @copyright  2018 CLAMP
+ * @copyright  2019 Lafayette College
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,7 +31,7 @@ use Behat\Gherkin\Node\PyStringNode as PyStringNode;
  * Custom step definitions
  *
  * @package    report_roster
- * @copyright  2019 CLAMP
+ * @copyright  2019 Lafayette College
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_report_roster extends behat_base {
