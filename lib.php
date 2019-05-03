@@ -35,7 +35,7 @@ function report_roster_extend_navigation_course($navigation, $course, $context) 
     if (has_capability('report/roster:view', $context)) {
         // If the setting is enabled, put a link to the report in the flat navigation.
         if (get_config('report_roster', 'flatnav')) {
-            add_to_flatnav();
+            report_roster_add_to_flatnav();
         }
 
         $url = new moodle_url('/report/roster/index.php', array('id' => $course->id));
