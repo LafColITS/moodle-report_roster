@@ -49,7 +49,7 @@ function report_roster_extend_navigation_course($navigation, $course, $context) 
  *
  * @return void
  */
-function add_to_flatnav() {
+function report_roster_add_to_flatnav() {
     global $PAGE, $COURSE;
 
     // Create the link.
