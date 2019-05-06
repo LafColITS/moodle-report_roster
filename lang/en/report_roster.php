@@ -35,6 +35,8 @@ $string['roster:view'] = 'View roster course report';
 $string['settings:displayname'] = 'Display name';
 $string['settings:displayname:description'] = 'This will display on the report page and in the navigation link.';
 $string['settings:displayname:default'] = 'Roster';
+$string['settings:show_username'] = 'Show username';
+$string['settings:show_username:description'] = 'Show username below fullname in the Roster Report';
 $string['settings:flatnav'] = 'Display in flat navigation?';
 $string['settings:flatnav:description'] = 'If checked, a link to the Roster report will be added to the Boost flat navigation.
 (Under older themes like More, it will appear in the Navigation block under Current course > {coursename})';
