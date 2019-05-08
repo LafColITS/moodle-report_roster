@@ -56,7 +56,7 @@ foreach ($userlist as $user) {
     if (!in_array($user->id, $suspended)) {
         $item = $OUTPUT->user_picture($user, array('size' => 100, 'courseid' => $course->id));
         $item .= html_writer::tag('span', fullname($user));
-        $item .= html_writer::tag('span', $user->username);
+        $item .= get_config('report_roster', 'show_username') ? html_writer::tag('span', $user->username) : '';
         $data[] = $item;
     }
 }
