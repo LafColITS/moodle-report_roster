@@ -46,7 +46,7 @@ $coursecontext = context_course::instance($course->id);
 require_capability('report/roster:view', $coursecontext);
 
 // Get all the users.
-$userlist = get_enrolled_users($coursecontext, '', $group, user_picture::fields('u', null, 0, 0, true));
+$userlist = get_enrolled_users($coursecontext, '', $group, user_picture::fields('u', ['username'], 0, 0, true));
 
 // Get suspended users.
 $suspended = get_suspended_userids($coursecontext);
@@ -56,6 +56,7 @@ foreach ($userlist as $user) {
     if (!in_array($user->id, $suspended)) {
         $item = $OUTPUT->user_picture($user, array('size' => 100, 'courseid' => $course->id));
         $item .= html_writer::tag('span', fullname($user));
+        $item .= get_config('report_roster', 'show_username') ? html_writer::tag('span', $user->username) : '';
         $data[] = $item;
     }
 }

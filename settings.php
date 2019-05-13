@@ -34,6 +34,14 @@ if ($ADMIN->fulltree) {
     );
 
     $settings->add(
+        new admin_setting_configcheckbox('report_roster/show_username',
+            get_string('settings:show_username', 'report_roster'),
+            get_string('settings:show_username:description', 'report_roster'),
+            0
+        )
+    );
+
+    $settings->add(
         new admin_setting_configtext('report_roster/displayname',
             get_string('settings:displayname', 'report_roster'),
             get_string('settings:displayname:description', 'report_roster'),

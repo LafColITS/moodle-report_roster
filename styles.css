@@ -7,11 +7,12 @@
 .report-roster li {
     display: inline-block;
     margin-bottom: 5px;
-    max-width: 100px;
     vertical-align: top;
+    text-align: center;
 }
 
 .report-roster li span {
+    white-space: nowrap;
     display: block;
     text-align: center;
 }
