@@ -30,7 +30,7 @@ define(['jquery', 'core/str'], function($, str) {
             var displayblock = str.get_string('learningmodeon', 'report_roster');
 
             $.when(displaynone, displayblock).done(function(localizedDisplayNone, localizedDisplayBlock) {
-                toggle.on('click', function () {
+                toggle.on('click', function() {
                     if (toggle.html() === localizedDisplayNone) {
                         $('ul.report-roster').find('li span').css('display', 'none');
                         toggle.html(localizedDisplayBlock);
