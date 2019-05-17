@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 3.4.2 (May 17, 2019)
 
 - Add support for flat navigation
+- Add option to display username in report
 
 ## 3.4.1 (November 26, 2018)
 
