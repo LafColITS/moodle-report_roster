@@ -25,7 +25,7 @@ Feature: Option to display in Boost flat navigation
       | config      | value          | plugin        |
       | flatnav     | 1              | report_roster |
       | displayname | Something Else | report_roster |
-    And I set the multiline "report_roster" "flatnav_position" setting as admin to:
+    And I set report_roster/flatnav_position to:
     """
     competencies (Competencies)
     grades (Grades)
@@ -41,7 +41,7 @@ Feature: Option to display in Boost flat navigation
       | config      | value          | plugin        |
       | flatnav     | 1              | report_roster |
       | displayname | Something ELSE | report_roster |
-    And I set the multiline "report_roster" "flatnav_position" setting as admin to:
+    And I set report_roster/flatnav_position to:
     """
     typocompetencies (Competencies)
     grades (Grades)

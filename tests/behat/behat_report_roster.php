@@ -36,14 +36,12 @@ use Behat\Gherkin\Node\PyStringNode as PyStringNode;
  */
 class behat_report_roster extends behat_base {
     /**
-     * Sets a multiline config value as admin
+     * Sets the flatnav_position config value as admin
      *
-     * @Given /^I set the multiline "(?P<plugin_string>(?:[^"]|\\")*)" "(?P<name_string>(?:[^"]|\\")*)" setting as admin to:$/
-     * @param string $plugin The plugins Frankenstyle name
-     * @param string $name The name of the setting to be set_config
+     * @Given /^I set report_roster\/flatnav_position to:$/
      * @param PyStringNode $value A triple-quote delimited text block to be set as the value of the setting
      */
-    public function i_set_the_multiline_setting_as_admin_to($plugin, $name, PyStringNode $value) {
-        set_config($name, $value->getRaw(), $plugin);
+    public function i_set_report_roster_flatnav_position_to(PyStringNode $value) {
+        set_config('flatnav_position', $value->getRaw(), 'report_roster');
     }
 }
