@@ -7,7 +7,7 @@ This is a simple report which displays the user pictures for everyone enrolled i
 
 Requirements
 ------------
-- Moodle 3.4 (build 2017111300 or later)
+- Moodle 3.5 (build 2018051700 or later)
 
 Installation
 ------------

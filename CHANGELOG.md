@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Dropped support for Moodle 3.4
+
 ## 3.4.2 (May 17, 2019)
 
 - Add support for flat navigation
