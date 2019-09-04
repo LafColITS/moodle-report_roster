@@ -43,35 +43,60 @@ function report_roster_get_group_options($id) {
     return $groups;
 }
 
+function report_roster_get_role_options($id) {
+    global $USER;
+
+    $context       = context_course::instance($id);
+    $rolesfromdb   = get_roles_used_in_context($context);
+    $viewableroles = get_viewable_roles($context, $USER->id);
+
+    $roles = array(0 => get_string('allusers', 'report_roster'));
+    foreach ($rolesfromdb as $role) {
+        $rolename = $viewableroles[$role->id];
+        if ($rolename) {
+            $roles[$role->id] = $rolename;
+        }
+    }
+    return $roles;
+}
+
 /**
  * Creates the action buttons (learning mode and groups) used on the report page.
  *
  * @param int $id The course id
- * @param int $group The current active group on the page
- * @param int $mode The current display mode
  * @param moodle_url $url The current page URL
+ * @param int $group The current active group on the page
+ * @param int $role The current role to filter by
+ * @param int $mode The current display mode
  * @return string The generated HTML
  */
-function report_roster_output_action_buttons($id, $group, $mode, $url) {
+function report_roster_output_action_buttons($id, $url, $group, $role, $mode) {
     global $OUTPUT;
 
     $displayoptions = array(
         ROSTER_MODE_DISPLAY => get_string('webmode', 'report_roster'),
         ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'));
     $groups = report_roster_get_group_options($id);
+    $roles = report_roster_get_role_options($id);
 
     $groupurl = clone $url;
-    $groupurl->params(array('mode' => $mode));
+    $groupurl->params(array('role' => $role, 'mode' => $mode));
+    $roleurl = clone $url;
+    $roleurl->params(array('group' => $group, 'mode' => $mode));
     $modeurl = clone $url;
-    $modeurl->params(array('group' => $group));
+    $modeurl->params(array('group' => $group, 'role' => $role));
 
-    $select = new single_select($groupurl, 'group', $groups, $group, null);
-    $select->label = get_string('group');
+    $groupselect = new single_select($groupurl, 'group', $groups, $group, null);
+    $groupselect->label = get_string('group');
+    $roleselect = new single_select($roleurl, 'role', $roles, (int)$role);
+    $roleselect->label = get_string('role');
+    $modeselect = new single_select($modeurl, 'mode', $displayoptions, $mode);
+    $modeselect->label = get_string('displaymode', 'report_roster');
+
     $html = html_writer::start_tag('div');
-    $html .= $OUTPUT->render($select);
-    $select = new single_select($modeurl, 'mode', $displayoptions, $mode);
-    $select->label = get_string('displaymode', 'report_roster');
-    $html .= $OUTPUT->render($select);
+    $html .= $OUTPUT->render($groupselect);
+    $html .= $OUTPUT->render($roleselect);
+    $html .= $OUTPUT->render($modeselect);
     $html .= html_writer::end_tag('div');
     return $html;
 }
