@@ -25,9 +25,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 $string['allusers'] = 'All users';
-$string['displaymode'] = 'Display mode';
 $string['learningmodeoff'] = 'Learning mode off';
 $string['learningmodeon'] = 'Learning mode on';
+$string['param:mode'] = 'Display mode';
 $string['pluginname'] = 'Roster';
 $string['printmode'] = 'Printable';
 $string['privacy:metadata'] = 'The roster report only shows data stored in other locations.';

@@ -68,42 +68,56 @@ function report_roster_get_options_role($id) {
 }
 
 /**
+ * Retrieves the size options and formats them for use in a drop-down
+ * selector.
+ *
+ * @return array The user image size options
+ */
+function report_roster_get_options_size() {
+    return array(
+        100 => 'S',
+        200 => 'M',
+        300 => 'L'
+    );
+}
+
+/**
  * Creates the action buttons (learning mode and groups) used on the report page.
  *
  * @param int $id The course id
  * @param moodle_url $url The current page URL
- * @param int $group The current active group on the page
- * @param int $role The current role to filter by
- * @param int $mode The current display mode
+ * @param array $params Current parameters values as an associative array (group, role, size, mode)
  * @return string The generated HTML
  */
-function report_roster_output_action_buttons($id, $url, $group, $role, $mode) {
+function report_roster_output_action_buttons($id, $url, $params) {
     global $OUTPUT;
 
-    $displayoptions = array(
+    $options = array();
+    $options['mode']   = array(
         ROSTER_MODE_DISPLAY => get_string('webmode', 'report_roster'),
         ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'));
-    $groups = report_roster_get_options_group($id);
-    $roles = report_roster_get_options_role($id);
+    $options['group'] = report_roster_get_options_group($id);
+    $options['role']  = report_roster_get_options_role($id);
+    $options['size']  = report_roster_get_options_size($id);
 
-    $groupurl = clone $url;
-    $groupurl->params(array('role' => $role, 'mode' => $mode));
-    $roleurl = clone $url;
-    $roleurl->params(array('group' => $group, 'mode' => $mode));
-    $modeurl = clone $url;
-    $modeurl->params(array('group' => $group, 'role' => $role));
+    $selects = array();
+    foreach($params as $key => $val) {
+        $myurl      = clone $url;
+        $myparams   = $params;
 
-    $groupselect = new single_select($groupurl, 'group', $groups, $group, null);
-    $groupselect->label = get_string('group');
-    $roleselect = new single_select($roleurl, 'role', $roles, (int)$role, null);
-    $roleselect->label = get_string('role');
-    $modeselect = new single_select($modeurl, 'mode', $displayoptions, $mode);
-    $modeselect->label = get_string('displaymode', 'report_roster');
+        unset($myparams[$key]);
+        $myurl->params($myparams);
+
+        $myselect        = new single_select($myurl, $key, $options[$key], $params[$key], null);
+        $myselect->label = get_string_manager()->string_exists("param:$key", 'report_roster') ? get_string("param:$key", 'report_roster') : get_string($key);
+
+        $selects[$key] = $myselect;
+    }
 
     $html = html_writer::start_tag('div');
-    $html .= $OUTPUT->render($groupselect);
-    $html .= $OUTPUT->render($roleselect);
-    $html .= $OUTPUT->render($modeselect);
+    foreach($selects as $select) {
+        $html .= $OUTPUT->render($select);
+    }
     $html .= html_writer::end_tag('div');
     return $html;
 }
