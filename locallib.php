@@ -34,7 +34,7 @@ define('ROSTER_MODE_PRINT', 'print');
  * @param int $id The course id
  * @return array The course groups indexed by group id
  */
-function report_roster_get_group_options($id) {
+function report_roster_get_options_group($id) {
     $groupsfromdb = groups_get_all_groups($id);
     $groups = array(0 => get_string('allusers', 'report_roster'));
     foreach ($groupsfromdb as $key => $value) {
@@ -43,7 +43,14 @@ function report_roster_get_group_options($id) {
     return $groups;
 }
 
-function report_roster_get_role_options($id) {
+/**
+ * Retrieves the roles for the course and formats them for use in a drop-down
+ * selector.
+ *
+ * @param int $id The course id
+ * @return array The course roles indexed by role id
+ */
+function report_roster_get_options_role($id) {
     global $USER;
 
     $context       = context_course::instance($id);
@@ -76,8 +83,8 @@ function report_roster_output_action_buttons($id, $url, $group, $role, $mode) {
     $displayoptions = array(
         ROSTER_MODE_DISPLAY => get_string('webmode', 'report_roster'),
         ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'));
-    $groups = report_roster_get_group_options($id);
-    $roles = report_roster_get_role_options($id);
+    $groups = report_roster_get_options_group($id);
+    $roles = report_roster_get_options_role($id);
 
     $groupurl = clone $url;
     $groupurl->params(array('role' => $role, 'mode' => $mode));
@@ -88,7 +95,7 @@ function report_roster_output_action_buttons($id, $url, $group, $role, $mode) {
 
     $groupselect = new single_select($groupurl, 'group', $groups, $group, null);
     $groupselect->label = get_string('group');
-    $roleselect = new single_select($roleurl, 'role', $roles, (int)$role);
+    $roleselect = new single_select($roleurl, 'role', $roles, (int)$role, null);
     $roleselect->label = get_string('role');
     $modeselect = new single_select($modeurl, 'mode', $displayoptions, $mode);
     $modeselect->label = get_string('displaymode', 'report_roster');
