@@ -4,6 +4,7 @@
 
 - Dropped support for Moodle 3.4
 - [Feature] Add role filtering
+- [Feature] Add image size setting
 
 ## 3.4.2 (May 17, 2019)
 

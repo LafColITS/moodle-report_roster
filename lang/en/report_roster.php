@@ -35,8 +35,6 @@ $string['roster:view'] = 'View roster course report';
 $string['settings:displayname'] = 'Display name';
 $string['settings:displayname:description'] = 'This will display on the report page and in the navigation link.';
 $string['settings:displayname:default'] = 'Roster';
-$string['settings:show_username'] = 'Show username';
-$string['settings:show_username:description'] = 'Show username below fullname in the Roster Report';
 $string['settings:flatnav'] = 'Display in flat navigation?';
 $string['settings:flatnav:description'] = 'If checked, a link to the Roster report will be added to the Boost flat navigation.
 (Under older themes like More, it will appear in the Navigation block under Current course > {coursename})';
@@ -51,5 +49,18 @@ competencies (Competencies)
 grades (Grades)
 participants (Participants)
 ";
+$string['settings:show_username'] = 'Show username';
+$string['settings:show_username:description'] = 'Show username below fullname in the Roster Report';
+$string['settings:size_default'] = 'Default size';
+$string['settings:size_default:description'] = 'Default user image size in pixels; should match one of Small, Medium, or Large below.';
+$string['settings:size_large'] = 'Size: Large';
+$string['settings:size_large:description'] = 'User image size in pixels for "Large"';
+$string['settings:size_medium'] = 'Size: Medium';
+$string['settings:size_medium:description'] = 'User image size in pixels for "Medium"';
+$string['settings:size_small'] = 'Size: Small';
+$string['settings:size_small:description'] = 'User image size in pixels for "Small"';
+$string['size:small'] = 'Small';
+$string['size:medium'] = 'Medium';
+$string['size:large'] = 'Large';
 $string['webmode'] = 'Web report';
 

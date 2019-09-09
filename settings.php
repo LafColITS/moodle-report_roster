@@ -56,4 +56,40 @@ if ($ADMIN->fulltree) {
             get_string('settings:flatnav_position:default', 'report_roster')
         )
     );
+
+    $settings->add(
+        new admin_setting_configtext('report_roster/size_default',
+            get_string('settings:size_default', 'report_roster'),
+            get_string('settings:size_default:description', 'report_roster'),
+            100,
+            PARAM_INT
+        )
+    );
+
+    $settings->add(
+        new admin_setting_configtext('report_roster/size_small',
+            get_string('settings:size_small', 'report_roster'),
+            get_string('settings:size_small:description', 'report_roster'),
+            100,
+            PARAM_INT
+        )
+    );
+
+    $settings->add(
+        new admin_setting_configtext('report_roster/size_medium',
+            get_string('settings:size_medium', 'report_roster'),
+            get_string('settings:size_medium:description', 'report_roster'),
+            200,
+            PARAM_INT
+        )
+    );
+
+    $settings->add(
+        new admin_setting_configtext('report_roster/size_large',
+            get_string('settings:size_large', 'report_roster'),
+            get_string('settings:size_large:description', 'report_roster'),
+            300,
+            PARAM_INT
+        )
+    );
 }
