@@ -76,13 +76,13 @@ $PAGE->requires->js_call_amd('report_roster/roster', 'init');
 echo $OUTPUT->header();
 echo html_writer::tag('button', get_string('learningmodeoff', 'report_roster'), array('id' => 'report-roster-toggle'));
 
-$current_params = array(
+$currentparams = array(
     'group' => $group,
     'role'  => $role,
     'size'  => $size,
     'mode'  => $mode
 );
-echo report_roster_output_action_buttons($id, $PAGE->url, $current_params);
+echo report_roster_output_action_buttons($id, $PAGE->url, $currentparams);
 
 echo html_writer::alist($data, array('class' => 'report-roster'));
 echo $OUTPUT->footer();

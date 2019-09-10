@@ -76,7 +76,7 @@ function report_roster_get_options_role($id) {
 function report_roster_get_options_size() {
     $sizes = array();
 
-    foreach(array('small', 'medium', 'large') as $size) {
+    foreach (array('small', 'medium', 'large') as $size) {
         $pixels = (int) get_config('report_roster', "size_$size");
         $label  = get_string("size:$size", 'report_roster');
 
@@ -108,7 +108,7 @@ function report_roster_output_action_buttons($id, $url, $params) {
     $options['size']  = report_roster_get_options_size($id);
 
     $selects = array();
-    foreach($params as $key => $val) {
+    foreach ($params as $key => $val) {
         if (array_key_exists($key, $options) && !empty($options[$key])) {
             $myurl      = clone $url;
             $myparams   = $params;
@@ -116,15 +116,17 @@ function report_roster_output_action_buttons($id, $url, $params) {
             unset($myparams[$key]);
             $myurl->params($myparams);
 
-            $myselect        = new single_select($myurl, $key, $options[$key], $params[$key], null);
-            $myselect->label = get_string_manager()->string_exists("param:$key", 'report_roster') ? get_string("param:$key", 'report_roster') : get_string($key);
+            $myselect        = new single_select($myurl, $key, $options[$key], $val, null);
+            $myselect->label = get_string_manager()->string_exists("param:$key", 'report_roster')
+                             ? get_string("param:$key", 'report_roster')
+                             : get_string($key);
 
             $selects[$key] = $myselect;
         }
     }
 
     $html = html_writer::start_tag('div');
-    foreach($selects as $select) {
+    foreach ($selects as $select) {
         $html .= $OUTPUT->render($select);
     }
     $html .= html_writer::end_tag('div');
