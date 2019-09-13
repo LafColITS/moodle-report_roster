@@ -25,12 +25,13 @@
 require_once(dirname(__FILE__) . '/../../config.php');
 require_once(dirname(__FILE__) . '/locallib.php');
 
-$id     = required_param('id', PARAM_INT);
-$mode   = optional_param('mode', ROSTER_MODE_DISPLAY, PARAM_TEXT);
-$group  = optional_param('group', 0, PARAM_INT);
-$role   = optional_param('role', 0, PARAM_INT);
-$size   = optional_param('size', get_config('report_roster', 'size_default'), PARAM_INT);
-$course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+$id          = required_param('id', PARAM_INT);
+$mode        = optional_param('mode', ROSTER_MODE_DISPLAY, PARAM_TEXT);
+$group       = optional_param('group', 0, PARAM_INT);
+$role        = optional_param('role', 0, PARAM_INT);
+$defaultsize = get_config('report_roster', 'size_' . get_config('report_roster', 'size_default'));
+$size        = optional_param('size', $defaultsize, PARAM_INT);
+$course      = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
 
 require_login($course);
 

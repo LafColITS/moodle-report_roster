@@ -57,12 +57,18 @@ if ($ADMIN->fulltree) {
         )
     );
 
+    $options = array(
+        'small'  => get_string('size:small', 'report_roster'),
+        'medium' => get_string('size:medium', 'report_roster'),
+        'large'  => get_string('size:large', 'report_roster'),
+    );
+
     $settings->add(
-        new admin_setting_configtext('report_roster/size_default',
+        new admin_setting_configselect('report_roster/size_default',
             get_string('settings:size_default', 'report_roster'),
             get_string('settings:size_default:description', 'report_roster'),
-            100,
-            PARAM_INT
+            'small',
+            $options
         )
     );
 
