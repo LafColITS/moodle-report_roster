@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 3.5.0 (September 16, 2019)
 
 - Dropped support for Moodle 3.4
 - [Feature] Add role filtering

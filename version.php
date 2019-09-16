@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2018112601;
+$plugin->version   = 2019091600;
 $plugin->requires  = 2018051700;
 $plugin->component = 'report_roster';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'v3.4.2';
+$plugin->release   = 'v3.5.0';
