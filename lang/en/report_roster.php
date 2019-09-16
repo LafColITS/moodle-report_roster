@@ -38,7 +38,7 @@ $string['settings:displayname:default'] = 'Roster';
 $string['settings:flatnav'] = 'Display in flat navigation?';
 $string['settings:flatnav:description'] = 'If checked, a link to the Roster report will be added to the Boost flat navigation.
 (Under older themes like More, it will appear in the Navigation block under Current course > {coursename})';
-$string['settings:flatnav_position'] = 'Position in Flat Navigation';
+$string['settings:flatnav_position'] = 'Position in flat navigation';
 $string['settings:flatnav_position:description'] = 'A link to the report will be added *above* the link at the top of this list.
 If not found, it will try the next in the list, and so on. The first word on each line is the link identifier; everything afterward
 is ignored (so that the identifiers can be labelled). The main course navigation nodes are included by default; the identifiers for
@@ -49,6 +49,9 @@ competencies (Competencies)
 grades (Grades)
 participants (Participants)
 ";
+$string['settings:headings:flatnav'] = 'Flat Navigation Settings';
+$string['settings:headings:general'] = 'General Settings';
+$string['settings:headings:size'] = 'User Image Size Settings';
 $string['settings:show_username'] = 'Show username';
 $string['settings:show_username:description'] = 'Show username below fullname in the Roster Report';
 $string['settings:size_default'] = 'Default size';
