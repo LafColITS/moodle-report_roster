@@ -59,35 +59,25 @@ if ($role > 0) {
 $suspended = get_suspended_userids($coursecontext);
 
 $data = array();
+$fields = explode("\n", get_config('report_roster', 'fields'));
+
 foreach ($userlist as $user) {
-    if (!in_array($user->id, $suspended)) {
-        $item = $OUTPUT->user_picture($user, array('size' => $size, 'courseid' => $course->id));
-        profile_load_data($user);
-
-        $fields = explode("\n", get_config('report_roster', 'fields'));
-        foreach ($fields as $field) {
-            if (!is_string($field)) {
-                continue;
-            }
-
-            $field = trim($field);
-            $value = '';
-
-            if ($field == 'fullname') {
-                $value = fullname($user);
-            } else {
-                if (property_exists($user, $field) && !empty($user->{$field})) {
-                    $value = $user->{$field};
-                }
-            }
-
-            if (!empty($value)) {
-                $item .= html_writer::tag('span', $value);
-            }
-        }
-
-        $data[] = $item;
+    // If user is suspended, skip them.
+    if (in_array($user->id, $suspended)) {
+        continue;
     }
+
+    // Get user picture and profile data.
+    $item = $OUTPUT->user_picture($user, array('size' => $size, 'courseid' => $course->id));
+    profile_load_data($user);
+
+    // Loop through configured display fields and add them.
+    foreach ($fields as $field) {
+        $value = report_roster_process_field($field, $user);
+        $item .= html_writer::tag('span', $value);
+    }
+
+    $data[] = $item;
 }
 
 // Finish setting up page.
