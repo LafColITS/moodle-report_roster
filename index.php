@@ -62,8 +62,30 @@ $data = array();
 foreach ($userlist as $user) {
     if (!in_array($user->id, $suspended)) {
         $item = $OUTPUT->user_picture($user, array('size' => $size, 'courseid' => $course->id));
-        $item .= html_writer::tag('span', fullname($user));
-        $item .= get_config('report_roster', 'show_username') ? html_writer::tag('span', $user->username) : '';
+        profile_load_data($user);
+
+        $fields = explode("\n", get_config('report_roster', 'fields'));
+        foreach ($fields as $field) {
+            if (!is_string($field)) {
+                continue;
+            }
+
+            $field = trim($field);
+            $value = '';
+
+            if ($field == 'fullname') {
+                $value = fullname($user);
+            } else {
+                if (property_exists($user, $field) && !empty($user->{$field})) {
+                    $value = $user->{$field};
+                }
+            }
+
+            if (!empty($value)) {
+                $item .= html_writer::tag('span', $value);
+            }
+        }
+
         $data[] = $item;
     }
 }

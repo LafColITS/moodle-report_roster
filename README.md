@@ -15,7 +15,7 @@ There are several options available to the admin from the Roster Report settings
 
 ### General
 
-**Show username:** If enabled, username will be shown below full name in the Roster Report.
+**Profile fields to display:** A newline separated list of profile fields to display. `fullname` is also supported. Note that custom profile fields must be entered as `profile_field_{shortname}`.
 
 **Display name:** The display string used by the Roster Report on the front end. Will appear in the flat navigation (if enabled) and on the Roster Report page.
 

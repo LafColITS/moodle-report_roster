@@ -31,10 +31,10 @@ if ($ADMIN->fulltree) {
     );
 
     $settings->add(
-        new admin_setting_configcheckbox('report_roster/show_username',
-            get_string('settings:show_username', 'report_roster'),
-            get_string('settings:show_username:description', 'report_roster'),
-            0
+        new admin_setting_configtextarea('report_roster/fields',
+            get_string('settings:fields', 'report_roster'),
+            get_string('settings:fields:description', 'report_roster'),
+            get_string('settings:fields:default', 'report_roster')
         )
     );
 
