@@ -139,4 +139,5 @@ function report_roster_process_field($field, $user) {
     } else if (property_exists($user, $field) && !empty($user->{$field}) && is_string($user->{$field})) {
         return $user->{$field};
     }
+    return false;
 }
