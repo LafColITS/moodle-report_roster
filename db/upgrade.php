@@ -38,6 +38,8 @@ function xmldb_report_roster_upgrade($oldversion) {
         if ($showusername) {
             set_config('fields', "fullname\nusername", 'report_roster');
         }
+
+        upgrade_plugin_savepoint(true, 2019091600, 'report_roster');
     }
 
     return true;
