@@ -39,7 +39,7 @@ function xmldb_report_roster_upgrade($oldversion) {
             set_config('fields', "fullname\nusername", 'report_roster');
         }
 
-        upgrade_plugin_savepoint(true, 2019091600, 'report', 'roster');
+        upgrade_plugin_savepoint(true, 2019091601, 'report', 'roster');
     }
 
     return true;
