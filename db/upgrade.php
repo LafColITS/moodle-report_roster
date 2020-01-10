@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die();
  * @return bool A status indicating success or failure
  */
 function xmldb_report_roster_upgrade($oldversion) {
-    if ($oldversion < 2019091601) {
+    if ($oldversion < 2020011000) {
         // Migrate 'show_username' setting to new 'fields' setting
         $showusername = get_config('report_roster', 'show_username');
 
@@ -39,7 +39,7 @@ function xmldb_report_roster_upgrade($oldversion) {
             set_config('fields', "fullname\nusername", 'report_roster');
         }
 
-        upgrade_plugin_savepoint(true, 2019091601, 'report', 'roster');
+        upgrade_plugin_savepoint(true, 2020011000, 'report', 'roster');
     }
 
     return true;
