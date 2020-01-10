@@ -132,3 +132,12 @@ function report_roster_output_action_buttons($id, $url, $params) {
     $html .= html_writer::end_tag('div');
     return $html;
 }
+
+function report_roster_process_field($field, $user) {
+    if ($field == 'fullname') {
+        return fullname($user);
+    } else if (property_exists($user, $field) && !empty($user->{$field}) && is_string($user->{$field})) {
+        return $user->{$field};
+    }
+    return false;
+}

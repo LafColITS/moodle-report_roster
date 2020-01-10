@@ -15,17 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * report_roster version information.
+ * Define upgrade tasks for the plugin.
  *
  * @package   report_roster
- * @copyright 2013 Lafayette College ITS
+ * @copyright 2020 onward Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019091601;
-$plugin->requires  = 2018120300;
-$plugin->component = 'report_roster';
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'v3.5.0';
+/**
+ * Upgrade function for plugin.
+ *
+ * @param int $oldversion The old version of the plugin
+ * @return bool A status indicating success or failure
+ */
+function xmldb_report_roster_upgrade($oldversion) {
+    if ($oldversion < 2019091601) {
+        // Migrate 'show_username' setting to new 'fields' setting
+        $showusername = get_config('report_roster', 'show_username');
+
+        if ($showusername) {
+            set_config('fields', "fullname\nusername", 'report_roster');
+        }
+
+        upgrade_plugin_savepoint(true, 2019091601, 'report', 'roster');
+    }
+
+    return true;
+}
