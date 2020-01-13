@@ -27,7 +27,9 @@ There are several options available to the admin from the Roster Report settings
 
 ### User Image Size
 
-**Default size:** The default size, in pixels, of the user images in the Roster Report. Should match one of the three size level options below. This is the size that will be used when a user first navigates to the report and has not requested a specific size yet.
+Note that any size set to `0` will not display in the drop-down on the report page. Note also that if all three are set to `0`, no dropdown will be displayed, and the size will hard default to 100px.
+
+**Default size:** The default size of the user images in the Roster Report. This is the size that will be used when a user first navigates to the report and has not requested a specific size yet.
 
 **Size: Small:** The size, in pixels, of the user images when the user has selected "Small".
 
