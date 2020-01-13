@@ -30,6 +30,7 @@ $mode        = optional_param('mode', ROSTER_MODE_DISPLAY, PARAM_TEXT);
 $group       = optional_param('group', 0, PARAM_INT);
 $role        = optional_param('role', 0, PARAM_INT);
 $defaultsize = get_config('report_roster', 'size_' . get_config('report_roster', 'size_default'));
+$defaultsize = $defaultsize == 0 ? 100 : $defaultsize; // Hard default to 100.
 $size        = optional_param('size', $defaultsize, PARAM_INT);
 $course      = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
 
