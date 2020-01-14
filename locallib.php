@@ -161,7 +161,7 @@ function report_roster_resolve_auto_size() {
         return (int) $defaultsize;
     } else {
         // Otherwise, check the other size options and return the first non-zero one.
-        foreach(array('small', 'medium', 'large') as $selector) {
+        foreach (array('small', 'medium', 'large') as $selector) {
             $size = get_config('report_roster', 'size_' . $selector);
             if ($size != 0) {
                 return $size;
