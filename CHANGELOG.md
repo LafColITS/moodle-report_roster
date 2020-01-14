@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- [Improvement] More robust user image size defaulting
+
 ## 3.6.0 (January 10, 2020)
 
 - Dropped support for Moodle 3.5

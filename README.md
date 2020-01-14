@@ -27,7 +27,11 @@ There are several options available to the admin from the Roster Report settings
 
 ### User Image Size
 
-Note that any size set to `0` will not display in the drop-down on the report page. Note also that if all three are set to `0`, no dropdown will be displayed, and the size will hard default to 100px.
+Any size set to `0` will not display in the drop-down on the report page.
+
+On initial load of the report page, the report will attempt to use the size configured as default (see below). If this size is 0, the report will fall back to the next highest size option. If all three size options are `0`, the size will hard default to 100.
+
+If there is only one non-zero size option, the drop-down will not be displayed.
 
 **Default size:** The default size of the user images in the Roster Report. This is the size that will be used when a user first navigates to the report and has not requested a specific size yet.
 

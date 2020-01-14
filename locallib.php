@@ -107,6 +107,11 @@ function report_roster_output_action_buttons($id, $url, $params) {
     $options['role']  = report_roster_get_options_role($id);
     $options['size']  = report_roster_get_options_size($id);
 
+    // If there's only one size, don't bother displaying the select.
+    if (count($options['size']) <= 1) {
+        $options['size'] = array();
+    }
+
     $selects = array();
     foreach ($params as $key => $val) {
         if (array_key_exists($key, $options) && !empty($options[$key])) {
@@ -140,4 +145,29 @@ function report_roster_process_field($field, $user) {
         return $user->{$field};
     }
     return false;
+}
+
+/**
+ * Resolves which size display when no query param has been passed.
+ *
+ * @return string The generated HTML
+ */
+function report_roster_resolve_auto_size() {
+    $defaultselector = get_config('report_roster', 'size_default');
+    $defaultsize = get_config('report_roster', 'size_' . $defaultselector);
+
+    if ($defaultsize != 0) {
+        // If the default size config is valid, return that.
+        return (int) $defaultsize;
+    } else {
+        // Otherwise, check the other size options and return the first non-zero one.
+        foreach(array('small', 'medium', 'large') as $selector) {
+            $size = get_config('report_roster', 'size_' . $selector);
+            if ($size != 0) {
+                return $size;
+            }
+        }
+        // And finally, if none of that worked, hard default to 100.
+        return 100;
+    }
 }
