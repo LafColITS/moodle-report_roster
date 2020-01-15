@@ -33,7 +33,9 @@ Feature: An administrator may configure the displayed profile fields
     Given I set report_roster/fields to:
     """
     email
+
     profile_field_test_custom_field
+
     """
     And I am on "Course 1" course homepage
     And I navigate to "Reports > Roster" in current page administration
