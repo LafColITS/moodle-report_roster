@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.6.2 (June 15, 2020)
+
+- Code cleanup
+- Streamlined unit testing matrix
+
 ## 3.6.1 (January 15, 2020)
 
 - [Improvement] More robust user image size defaulting
