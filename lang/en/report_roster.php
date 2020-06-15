@@ -36,7 +36,7 @@ $string['settings:displayname'] = 'Display name';
 $string['settings:displayname:description'] = 'This will display on the report page and in the flat navigation link (if enabled below).';
 $string['settings:displayname:default'] = 'Roster';
 $string['settings:fields'] = 'Profile fields to display';
-$string['settings:fields:description'] = 'A list of profile fields to display in the report. Each field identifier should be on a new line. `fullname` is also supported.
+$string['settings:fields:description'] = 'A list of profile fields to display in the report. Each field identifier should be on a new line. \'fullname\' is also supported.
 
 IMPORTANT: custom profile fields must be entered as "profile_field_{shortname}".';
 $string['settings:fields:default'] = 'fullname';

@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 function xmldb_report_roster_upgrade($oldversion) {
     if ($oldversion < 2020011000) {
-        // Migrate 'show_username' setting to new 'fields' setting
+        // Migrate 'show_username' setting to new 'fields' setting.
         $showusername = get_config('report_roster', 'show_username');
 
         if ($showusername) {

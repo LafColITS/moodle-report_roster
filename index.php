@@ -50,7 +50,15 @@ require_capability('report/roster:view', $coursecontext);
 
 // Get all the users.
 if ($role > 0) {
-    $userlist = get_role_users($role, $coursecontext, false, user_picture::fields('u', ['username'], 0, 0, true), null, null, $group);
+    $userlist = get_role_users(
+        $role,
+        $coursecontext,
+        false,
+        user_picture::fields('u', ['username'], 0, 0, true),
+        null,
+        null,
+        $group
+    );
 } else {
     $userlist = get_enrolled_users($coursecontext, '', $group, user_picture::fields('u', ['username'], 0, 0, true));
 }

@@ -138,6 +138,14 @@ function report_roster_output_action_buttons($id, $url, $params) {
     return $html;
 }
 
+/**
+ * Returns the value of the given field for the given user. Returns false
+ * if the field does not exizt on the user object.
+ *
+ * @param string $field the user field name
+ * @param stdClass $user the user object
+ * @return string the value of the field
+ */
 function report_roster_process_field($field, $user) {
     $field = trim($field);
     if ($field == 'fullname') {
