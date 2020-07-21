@@ -39,7 +39,8 @@ $string['settings:fields'] = 'Profile fields to display';
 $string['settings:fields:description'] = 'A list of profile fields to display in the report. Each field identifier should be on a new line. \'fullname\' is also supported.
 
 IMPORTANT: custom profile fields must be entered as "profile_field_{shortname}".';
-$string['settings:fields:default'] = 'fullname';
+$string['settings:fields:default'] = 'fullname
+currenttime %l:%M %p';
 $string['settings:flatnav'] = 'Display in flat navigation?';
 $string['settings:flatnav:description'] = 'If checked, a link to the Roster report will be added to the Boost flat navigation.
 (Under older themes like More, it will appear in the Navigation block under Current course > {coursename}.)';
