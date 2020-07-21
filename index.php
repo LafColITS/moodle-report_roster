@@ -75,10 +75,6 @@ $suspended = get_suspended_userids($coursecontext);
 $data = array();
 $fields = explode("\n", get_config('report_roster', 'fields'));
 foreach ($userlist as $user) {
-    echo "<pre>";
-    print_r($user);
-    print_r($USER);
-    die();
     // If user is suspended, skip them.
     if (in_array($user->id, $suspended)) {
         continue;

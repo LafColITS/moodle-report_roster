@@ -196,7 +196,7 @@ function report_roster_profile_fields_query() {
     $fieldsconfig = explode("\n", get_config('report_roster', 'fields'));
     $fields = user_picture::fields('u', ['username'], 0, 0, true) . ',u.timezone';
 
-    foreach ( $fieldsconfig as $field ) {
+    foreach ($fieldsconfig as $field) {
         $field = trim($field);
 
         if ( property_exists($USER, $field)) {
