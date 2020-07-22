@@ -140,16 +140,20 @@ function report_roster_output_action_buttons($id, $url, $params) {
 
 /**
  * Returns the value of the given field for the given user. Returns false
- * if the field does not exizt on the user object.
+ * if the field does not exist on the user object.
  *
  * @param string $field the user field name
  * @param stdClass $user the user object
+ *
  * @return string the value of the field
  */
 function report_roster_process_field($field, $user) {
     $field = trim($field);
     if ($field == 'fullname') {
         return fullname($user);
+    } else if (strpos($field, 'currenttime') === 0) {
+        $format = trim(str_replace('currenttime', '', $field));
+        return userdate(time(), $format, $user->timezone);
     } else if (property_exists($user, $field) && !empty($user->{$field}) && is_string($user->{$field})) {
         return $user->{$field};
     }
@@ -179,4 +183,26 @@ function report_roster_resolve_auto_size() {
         // And finally, if none of that worked, hard default to 100.
         return 100;
     }
+}
+
+/**
+ * Build the fields to retrieve from the user profile.
+ *
+ * @return string SQL-query-like string of fields to fetch, for use in get_enrolled_users / get_role_users
+ */
+function report_roster_profile_fields_query() {
+    global $DB, $USER;
+
+    $fieldsconfig = explode("\n", get_config('report_roster', 'fields'));
+    $fields = user_picture::fields('u', ['username'], 0, 0, true) . ',u.timezone';
+
+    foreach ($fieldsconfig as $field) {
+        $field = trim($field);
+
+        if ( property_exists($USER, $field)) {
+            $fields .= ',u.' . $field;
+        }
+    }
+
+    return $fields;
 }

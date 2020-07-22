@@ -49,18 +49,24 @@ $coursecontext = context_course::instance($course->id);
 require_capability('report/roster:view', $coursecontext);
 
 // Get all the users.
+$fieldstofetch = report_roster_profile_fields_query();
 if ($role > 0) {
     $userlist = get_role_users(
         $role,
         $coursecontext,
         false,
-        user_picture::fields('u', ['username'], 0, 0, true),
+        $fieldstofetch,
         null,
         null,
         $group
     );
 } else {
-    $userlist = get_enrolled_users($coursecontext, '', $group, user_picture::fields('u', ['username'], 0, 0, true));
+    $userlist = get_enrolled_users(
+        $coursecontext,
+        '',
+        $group,
+        $fieldstofetch
+    );
 }
 
 // Get suspended users.
@@ -68,7 +74,6 @@ $suspended = get_suspended_userids($coursecontext);
 
 $data = array();
 $fields = explode("\n", get_config('report_roster', 'fields'));
-
 foreach ($userlist as $user) {
     // If user is suspended, skip them.
     if (in_array($user->id, $suspended)) {
