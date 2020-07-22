@@ -86,7 +86,6 @@ foreach ($userlist as $user) {
 
     // Loop through configured display fields and add them.
     foreach ($fields as $field) {
-        $field = trim($field);
         $value = report_roster_process_field($field, $user);
         $item .= !empty($value) ? html_writer::tag('span', $value) : '';
     }
