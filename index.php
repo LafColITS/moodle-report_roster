@@ -49,7 +49,7 @@ $coursecontext = context_course::instance($course->id);
 require_capability('report/roster:view', $coursecontext);
 
 // Get all the users.
-$fieldstofetch = report_roster_profile_fields_query();user_picture::fields('u', ['username'], 0, 0, true);
+$fieldstofetch = report_roster_profile_fields_query();
 if ($role > 0) {
     $userlist = get_role_users(
         $role,
