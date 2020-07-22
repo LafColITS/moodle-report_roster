@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.6.3 (July 22, 2020)
+
+- [Improvement] Support showing a user's timezone
+
 ## 3.6.2 (June 15, 2020)
 
 - Code cleanup
