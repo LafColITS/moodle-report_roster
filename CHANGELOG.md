@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Change default branch to "main"
+- Update CI tool to version 3
+- Dropped support for Moodle 3.6
+
 ## 3.6.3 (July 22, 2020)
 
 - [Improvement] Support showing a user's timezone
