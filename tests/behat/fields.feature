@@ -48,3 +48,4 @@ Feature: An administrator may configure the displayed profile fields
     Then I should see "pottertest"
     Then I should see "grangertest"
     Then I should see "weasleytest"
+    

@@ -93,3 +93,4 @@ Feature: User images can be configured to display at different sizes
     And "select[name='size']" "css_element" should not exist
     Then the "width" attribute of "ul.report-roster img.userpicture" "css_element" should contain "100"
     And the "height" attribute of "ul.report-roster img.userpicture" "css_element" should contain "100"
+    
