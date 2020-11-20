@@ -1,6 +1,6 @@
 # Roster
 
-[![Build Status](https://api.travis-ci.org/LafColITS/moodle-report_roster.png)](https://api.travis-ci.org/LafColITS/moodle-report_roster)
+![moodle-ci](https://github.com/LafColITS/moodle-report_roster/workflows/moodle-ci/badge.svg)
 
 This is a simple report which displays the user pictures for everyone enrolled in the given course.
 

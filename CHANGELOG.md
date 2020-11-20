@@ -5,6 +5,7 @@
 - Change default branch to "main"
 - Update CI tool to version 3
 - Dropped support for Moodle 3.6
+- Move testing to Github Actions
 
 ## 3.6.3 (July 22, 2020)
 
