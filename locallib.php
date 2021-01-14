@@ -155,12 +155,19 @@ function report_roster_process_field($field, $user) {
         $format = trim(str_replace('currenttime', '', $field));
         return userdate(time(), $format, $user->timezone);
     } else if (property_exists($user, $field) && !empty($user->{$field})) {
+        $options = array('context' => \context_user::instance(4));
         if (is_string($user->{$field})) {
-            return $user->{$field};
+            $output = $user->{$field};
+            $format = FORMAT_HTML;
         } else if (is_array($user->{$field}) && array_key_exists('text', $user->{$field}) && array_key_exists('format', $user->{$field})) {
-            return format_text($user->{$field}['text'], $user->{$field}['format'], array('overflowdiv' => true));
+            $output = $user->{$field}['text'];
+            $format = $user->{$field}['format'];
         }
-    }
+
+        $output = file_rewrite_pluginfile_urls($output, 'pluginfile.php', \context_user::instance($user->id)->id, 'user', 'profile', null);
+        $output = format_text($output, $format, $options);
+        return $output;
+}
     return false;
 }
 
