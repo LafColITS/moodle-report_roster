@@ -154,8 +154,12 @@ function report_roster_process_field($field, $user) {
     } else if (strpos($field, 'currenttime') === 0) {
         $format = trim(str_replace('currenttime', '', $field));
         return userdate(time(), $format, $user->timezone);
-    } else if (property_exists($user, $field) && !empty($user->{$field}) && is_string($user->{$field})) {
-        return $user->{$field};
+    } else if (property_exists($user, $field) && !empty($user->{$field})) {
+        if (is_string($user->{$field})) {
+            return $user->{$field};
+        } else if (is_array($user->{$field}) && array_key_exists('text', $user->{$field}) && array_key_exists('format', $user->{$field})) {
+            return format_text($user->{$field}['text'], $user->{$field}['format'], array('overflowdiv' => true));
+        }
     }
     return false;
 }
@@ -194,7 +198,7 @@ function report_roster_profile_fields_query() {
     global $DB, $USER;
 
     $fieldsconfig = explode("\n", get_config('report_roster', 'fields'));
-    $fields = user_picture::fields('u', ['username'], 0, 0, true) . ',u.timezone';
+    $fields = user_picture::fields('u', ['username'], 0, 0, true) . ',u.timezone,u.description';
 
     foreach ($fieldsconfig as $field) {
         $field = trim($field);
