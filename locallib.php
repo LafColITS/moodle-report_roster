@@ -158,15 +158,19 @@ function report_roster_process_field($field, $user) {
         if (is_string($user->{$field})) {
             $output = $user->{$field};
             $format = FORMAT_HTML;
-        } else if (is_array($user->{$field}) && array_key_exists('text', $user->{$field}) && array_key_exists('format', $user->{$field})) {
+        } else if (is_array($user->{$field})
+                && array_key_exists('text', $user->{$field})
+                && array_key_exists('format', $user->{$field})
+        ) {
             $output = $user->{$field}['text'];
             $format = $user->{$field}['format'];
         }
 
-        $output = file_rewrite_pluginfile_urls($output, 'pluginfile.php', \context_user::instance($user->id)->id, 'user', 'profile', null);
+        $output = file_rewrite_pluginfile_urls($output, 'pluginfile.php',
+            \context_user::instance($user->id)->id, 'user', 'profile', null);
         $output = format_text($output, $format);
         return $output;
-}
+    }
     return false;
 }
 
