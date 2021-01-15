@@ -55,5 +55,13 @@ There are several options available when viewing the Roster Report:
 **Size** changes the display size of the user images based on levels configured in the admin settings (see above)
 **Display mode** which toggles between the regular web view and a version of the report suitable for printing
 
+### Display User Name Pronunciation
+
+Some schools have used the following steps to set up a system to display user-entered name pronunciation data in the Roster report.
+
+1. Give Authenticated users the permission "View user profiles" (moodle/user:viewdetails).
+2. Add "description" to the "Profile fields to display" setting in the Roster report settings page.
+3. Instruct users to enter their name pronunciation into their profile description via RecordRTC. Instruct them not to enter any additional text, as this will also be displayed in the Roster report and throw off the layout. Safety rails for this feature will be forthcoming in a future release.
+
 ## Author
 Charles Fulton (fultonc@lafayette.edu)
