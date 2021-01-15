@@ -48,7 +48,7 @@ $string['settings:flatnav_position'] = 'Position in flat navigation';
 $string['settings:flatnav_position:description'] = 'A link to the report will be added *above* the link at the top of this list.
 If not found, it will try the next in the list, and so on. The first word on each line is the link identifier; everything afterward
 is ignored (so that the identifiers can be labelled). The main course navigation nodes are included by default; the identifiers for
-additional nodes can be obtained by looking at the `data-key` property of the relevant `<a>`.';
+additional nodes can be obtained by looking at the "data-key" property of the relevant "<a>".';
 $string['settings:flatnav_position:default'] = "
 badgesview (Badges)
 competencies (Competencies)

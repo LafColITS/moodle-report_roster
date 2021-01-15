@@ -15,10 +15,11 @@ There are several options available to the admin from the Roster Report settings
 
 ### General
 
-**Profile fields to display:** A newline separated list of profile fields to display. Note that custom profile fields must be entered as `profile_field_{shortname}`. The following special values are also supported:
+**Profile fields to display:** A newline separated list of profile fields to display. Note that custom profile fields must be entered as `profile_field_{shortname}`. Currently this functionality supports text and textarea custom profile fields. The following special values are also supported:
 
 * `fullname` - displays fullname according to site settings.
-* `currenttime` - displays date/time in user's configured timezone (you can specify PHP strftime style formatting like so: `currenttime %l:%M %p`)
+* `currenttime` - displays date/time in user's configured timezone (you can specify PHP strftime style formatting like so: `currenttime %l:%M %p`).
+* `description` - description from the user's profile.
 
 **Display name:** The display string used by the Roster Report on the front end. Will appear in the flat navigation (if enabled) and on the Roster Report page.
 
@@ -53,6 +54,14 @@ There are several options available when viewing the Roster Report:
 **Role** filtering to display only users with the selected role
 **Size** changes the display size of the user images based on levels configured in the admin settings (see above)
 **Display mode** which toggles between the regular web view and a version of the report suitable for printing
+
+### Display User Name Pronunciation
+
+Some schools have used the following steps to set up a system to display user-entered name pronunciation data in the Roster report.
+
+1. Give Authenticated users the permission "View user profiles" (moodle/user:viewdetails).
+2. Add "description" to the "Profile fields to display" setting in the Roster report settings page.
+3. Instruct users to enter their name pronunciation into their profile description via RecordRTC. Instruct them not to enter any additional text, as this will also be displayed in the Roster report and throw off the layout. Safety rails for this feature will be forthcoming in a future release.
 
 ## Author
 Charles Fulton (fultonc@lafayette.edu)
