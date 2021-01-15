@@ -155,7 +155,6 @@ function report_roster_process_field($field, $user) {
         $format = trim(str_replace('currenttime', '', $field));
         return userdate(time(), $format, $user->timezone);
     } else if (property_exists($user, $field) && !empty($user->{$field})) {
-        $options = array('context' => \context_user::instance(4));
         if (is_string($user->{$field})) {
             $output = $user->{$field};
             $format = FORMAT_HTML;
@@ -165,7 +164,7 @@ function report_roster_process_field($field, $user) {
         }
 
         $output = file_rewrite_pluginfile_urls($output, 'pluginfile.php', \context_user::instance($user->id)->id, 'user', 'profile', null);
-        $output = format_text($output, $format, $options);
+        $output = format_text($output, $format);
         return $output;
 }
     return false;

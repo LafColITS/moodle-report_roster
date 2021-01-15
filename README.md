@@ -15,10 +15,11 @@ There are several options available to the admin from the Roster Report settings
 
 ### General
 
-**Profile fields to display:** A newline separated list of profile fields to display. Note that custom profile fields must be entered as `profile_field_{shortname}`. The following special values are also supported:
+**Profile fields to display:** A newline separated list of profile fields to display. Note that custom profile fields must be entered as `profile_field_{shortname}`. Currently this functionality supports text and textarea custom profile fields. The following special values are also supported:
 
 * `fullname` - displays fullname according to site settings.
-* `currenttime` - displays date/time in user's configured timezone (you can specify PHP strftime style formatting like so: `currenttime %l:%M %p`)
+* `currenttime` - displays date/time in user's configured timezone (you can specify PHP strftime style formatting like so: `currenttime %l:%M %p`).
+* `description` - description from the user's profile.
 
 **Display name:** The display string used by the Roster Report on the front end. Will appear in the flat navigation (if enabled) and on the Roster Report page.
 
