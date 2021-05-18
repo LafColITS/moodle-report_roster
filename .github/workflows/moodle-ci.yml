@@ -103,7 +103,7 @@ jobs:
 
       - name: Grunt
         if: ${{ always() }}
-        run: moodle-plugin-ci grunt --max-lint-warnings 0
+        run: moodle-plugin-ci grunt --max-lint-warnings 0 || [ "$MOODLE_BRANCH" = 'MOODLE_37_STABLE' ]
 
       - name: PHPUnit tests
         if: ${{ always() }}
