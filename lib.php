@@ -57,7 +57,7 @@ function report_roster_add_to_flatnav() {
         get_config('report_roster', 'displayname'),   // Link text.
         '/report/roster/index.php?id=' . $COURSE->id, // URL.
         navigation_node::TYPE_SETTING,                // Node type.
-        null,                                         // "Shorttext".
+        null,                                         // Shorttext.
         'report_roster',                              // Key.
         new pix_icon('t/roster', '', 'report_roster') // Icon.
     );
