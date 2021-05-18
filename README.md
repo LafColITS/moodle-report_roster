@@ -1,6 +1,6 @@
 # Roster
 
-![moodle-ci](https://github.com/LafColITS/moodle-report_roster/workflows/moodle-ci/badge.svg?branch=MOODLE_37_STABLE)
+![moodle-ci](https://github.com/LafColITS/moodle-report_roster/workflows/moodle-ci/badge.svg?branch=MOODLE_39_STABLE)
 
 This is a simple report which displays the user pictures for everyone enrolled in the given course.
 
