@@ -33,7 +33,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configtextarea('report_roster/fields',
             get_string('settings:fields', 'report_roster'),
-            get_string('settings:fields:description', 'report_roster'),
+            get_string('settings:fields:help', 'report_roster'),
             get_string('settings:fields:default', 'report_roster')
         )
     );
@@ -41,7 +41,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configtext('report_roster/displayname',
             get_string('settings:displayname', 'report_roster'),
-            get_string('settings:displayname:description', 'report_roster'),
+            get_string('settings:displayname:help', 'report_roster'),
             get_string('settings:displayname:default', 'report_roster')
         )
     );
@@ -53,7 +53,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configcheckbox('report_roster/flatnav',
             get_string('settings:flatnav', 'report_roster'),
-            get_string('settings:flatnav:description', 'report_roster'),
+            get_string('settings:flatnav:help', 'report_roster'),
             0
         )
     );
@@ -61,7 +61,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configtextarea('report_roster/flatnav_position',
             get_string('settings:flatnav_position', 'report_roster'),
-            get_string('settings:flatnav_position:description', 'report_roster'),
+            get_string('settings:flatnav_position:help', 'report_roster'),
             get_string('settings:flatnav_position:default', 'report_roster')
         )
     );
@@ -79,7 +79,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configselect('report_roster/size_default',
             get_string('settings:size_default', 'report_roster'),
-            get_string('settings:size_default:description', 'report_roster'),
+            get_string('settings:size_default:help', 'report_roster'),
             'small',
             $options
         )
@@ -88,7 +88,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configtext('report_roster/size_small',
             get_string('settings:size_small', 'report_roster'),
-            get_string('settings:size_small:description', 'report_roster'),
+            get_string('settings:size_small:help', 'report_roster'),
             100,
             PARAM_INT
         )
@@ -97,7 +97,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configtext('report_roster/size_medium',
             get_string('settings:size_medium', 'report_roster'),
-            get_string('settings:size_medium:description', 'report_roster'),
+            get_string('settings:size_medium:help', 'report_roster'),
             200,
             PARAM_INT
         )
@@ -106,7 +106,7 @@ if ($ADMIN->fulltree) {
     $settings->add(
         new admin_setting_configtext('report_roster/size_large',
             get_string('settings:size_large', 'report_roster'),
-            get_string('settings:size_large:description', 'report_roster'),
+            get_string('settings:size_large:help', 'report_roster'),
             300,
             PARAM_INT
         )
