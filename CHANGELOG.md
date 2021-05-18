@@ -4,7 +4,7 @@
 
 - Change default branch to "main"
 - Update CI tool to version 3
-- Dropped support for Moodle 3.6
+- Dropped support for Moodle 3.6-Moodle 3.8
 - Added support for Moodle 3.10
 - Move testing to Github Actions
 

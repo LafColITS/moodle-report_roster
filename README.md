@@ -5,7 +5,7 @@
 This is a simple report which displays the user pictures for everyone enrolled in the given course.
 
 ## Requirements
-- Moodle 3.7 (build 2019052000 or later)
+- Moodle 3.9 (build 2020061500 or later)
 
 ## Installation
 Copy the roster folder into your /report directory and visit your Admin Notification page to complete the installation.
