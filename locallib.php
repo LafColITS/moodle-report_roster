@@ -193,16 +193,21 @@ function report_roster_resolve_auto_size() {
 function report_roster_profile_fields_query() {
     global $DB, $USER;
 
+    // Set extra fields to retrieve.
+    $extrafields = ['username', 'timezone'];
     $fieldsconfig = explode("\n", get_config('report_roster', 'fields'));
-    $fields = user_picture::fields('u', ['username'], 0, 0, true) . ',u.timezone';
-
     foreach ($fieldsconfig as $field) {
         $field = trim($field);
 
         if ( property_exists($USER, $field)) {
-            $fields .= ',u.' . $field;
+            $extrafields[] = $field;
         }
     }
 
-    return $fields;
+    $fields = \core_user\fields::for_userpic();
+    $fields->including(...$extrafields);
+
+    $selects = $fields->get_sql('u', false, '', 'id', false)->selects;
+    $selects = str_replace(', ', ',', $selects);
+    return $selects;
 }

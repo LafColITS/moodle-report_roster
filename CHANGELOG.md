@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- [Bugfix] Update internal API in light of [MDL-45242](https://tracker.moodle.org/browse/MDL-45242)
 - Change default branch to "main"
 - Update CI tool to version 3
 - Dropped support for Moodle 3.6-Moodle 3.10
