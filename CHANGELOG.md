@@ -2,10 +2,11 @@
 
 ## Unreleased
 
+- [Bugfix] Update internal API in light of [MDL-45242](https://tracker.moodle.org/browse/MDL-45242)
 - Change default branch to "main"
 - Update CI tool to version 3
-- Dropped support for Moodle 3.6-Moodle 3.8
-- Added support for Moodle 3.10-3.11
+- Dropped support for Moodle 3.6-Moodle 3.10
+- Added support for Moodle 3.11
 - Move testing to Github Actions
 
 ## 3.6.3 (July 22, 2020)
