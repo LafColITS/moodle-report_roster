@@ -70,4 +70,3 @@ $string['size:small'] = 'Small';
 $string['size:medium'] = 'Medium';
 $string['size:large'] = 'Large';
 $string['webmode'] = 'Web report';
-
