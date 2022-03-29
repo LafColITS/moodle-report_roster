@@ -28,4 +28,4 @@ $plugin->version   = 2022032900;
 $plugin->requires  = 2021051700;
 $plugin->component = 'report_roster';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'v3.11.0';
+$plugin->release   = 'v4.0.0';

@@ -22,12 +22,6 @@ There are several options available to the admin from the Roster Report settings
 
 **Display name:** The display string used by the Roster Report on the front end. Will appear in the flat navigation (if enabled) and on the Roster Report page.
 
-### Flat Navigation
-
-**Display in flat navigation:** If enabled, the plugin will attempt to display a link to the Roster Report in the Boost flat navigation menu (left sidebar).
-
-**Position in flat navigation:** A newline separated list of flat navigation link identifiers. A link to the Roster Report will be added above the link at the top of this list. If not found, the next link down will be tried, and so on. The first word on each line is the link identifier; everything afterward is ignored (so that the identifiers can be labeled). The main course navigation nodes are included by default; the identifiers for additional nodes can be obtained by looking at the `data-key` property of the relevant `<a>`.
-
 ### User Image Size
 
 Any size set to `0` will not display in the drop-down on the report page. If there is only one non-zero size option, the drop-down will not be displayed.

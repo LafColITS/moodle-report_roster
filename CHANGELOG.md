@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.0.0 (March 29, 2022)
 
 - Remove support for flat navigation
 - Added support for Moodle 4.0 and dropped support for Moodle 3.11
