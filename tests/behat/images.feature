@@ -21,7 +21,8 @@ Feature: User images can be configured to display at different sizes
       | rweasley | C1     | student |
     Given I log in as "admin"
     And I am on "Course 1" course homepage
-    And I navigate to "Reports > Roster" in current page administration
+    And I navigate to "Reports" in current page administration
+    And I select "Roster" from the "Report type" singleselect
     Then the "size" select box should contain "Small"
     And the "size" select box should contain "Medium"
     And the "size" select box should contain "Large"
@@ -42,7 +43,8 @@ Feature: User images can be configured to display at different sizes
       | size_medium  | 250    | report_roster |
       | size_large   | 350    | report_roster |
     And I am on "Course 1" course homepage
-    And I navigate to "Reports > Roster" in current page administration
+    And I navigate to "Reports" in current page administration
+    And I select "Roster" from the "Report type" singleselect
     Then the "width" attribute of "ul.report-roster img.userpicture" "css_element" should contain "250"
     And the "height" attribute of "ul.report-roster img.userpicture" "css_element" should contain "250"
     When I set the field "size" to "Small"
@@ -60,7 +62,8 @@ Feature: User images can be configured to display at different sizes
       | size_medium  | 500   | report_roster |
       | size_large   | 600   | report_roster |
     And I am on "Course 1" course homepage
-    And I navigate to "Reports > Roster" in current page administration
+    And I navigate to "Reports" in current page administration
+    And I select "Roster" from the "Report type" singleselect
     And the "size" select box should not contain "Small"
     Then the "width" attribute of "ul.report-roster img.userpicture" "css_element" should contain "500"
     And the "height" attribute of "ul.report-roster img.userpicture" "css_element" should contain "500"
@@ -76,7 +79,8 @@ Feature: User images can be configured to display at different sizes
       | size_medium  | 0      | report_roster |
       | size_large   | 175    | report_roster |
     And I am on "Course 1" course homepage
-    And I navigate to "Reports > Roster" in current page administration
+    And I navigate to "Reports" in current page administration
+    And I select "Roster" from the "Report type" singleselect
     And "select[name='size']" "css_element" should not exist
     Then the "width" attribute of "ul.report-roster img.userpicture" "css_element" should contain "175"
     And the "height" attribute of "ul.report-roster img.userpicture" "css_element" should contain "175"
@@ -89,7 +93,8 @@ Feature: User images can be configured to display at different sizes
       | size_medium  | 0      | report_roster |
       | size_large   | 0      | report_roster |
     And I am on "Course 1" course homepage
-    And I navigate to "Reports > Roster" in current page administration
+    And I navigate to "Reports" in current page administration
+    And I select "Roster" from the "Report type" singleselect
     And "select[name='size']" "css_element" should not exist
     Then the "width" attribute of "ul.report-roster img.userpicture" "css_element" should contain "100"
     And the "height" attribute of "ul.report-roster img.userpicture" "css_element" should contain "100"
