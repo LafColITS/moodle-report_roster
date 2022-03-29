@@ -36,16 +36,6 @@ use Behat\Gherkin\Node\PyStringNode as PyStringNode;
  */
 class behat_report_roster extends behat_base {
     /**
-     * Sets the flatnav_position config value as admin
-     *
-     * @Given /^I set report_roster\/flatnav_position to:$/
-     * @param PyStringNode $value A triple-quote delimited text block to be set as the value of the setting
-     */
-    public function i_set_report_roster_flatnav_position_to(PyStringNode $value) {
-        set_config('flatnav_position', $value->getRaw(), 'report_roster');
-    }
-
-    /**
      * Sets the 'fields' config value as admin
      *
      * @Given /^I set report_roster\/fields to:$/

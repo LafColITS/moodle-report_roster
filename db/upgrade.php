@@ -42,5 +42,13 @@ function xmldb_report_roster_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2020011000, 'report', 'roster');
     }
 
+    if ($oldversion < 2022032900) {
+        // Remove deprecated flatnav support.
+        unset_config('flatnav', 'report_roster');
+        unset_config('flatnav_position', 'report_roster');
+
+        upgrade_plugin_savepoint(true, 2022032900, 'report', 'roster');
+    }
+
     return true;
 }

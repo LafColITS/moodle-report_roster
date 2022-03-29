@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Remove support for flat navigation
+- Added support for Moodle 4.0 and dropped support for Moodle 3.11
+
 ## 3.11.0 (May 19, 2021)
 
 - [Bugfix] Update internal API in light of [MDL-45242](https://tracker.moodle.org/browse/MDL-45242)

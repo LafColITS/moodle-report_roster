@@ -41,21 +41,6 @@ $string['settings:fields:description'] = 'A list of profile fields to display in
 IMPORTANT: custom profile fields must be entered as "profile_field_{shortname}".';
 $string['settings:fields:default'] = 'fullname
 currenttime %l:%M %p';
-$string['settings:flatnav'] = 'Display in flat navigation?';
-$string['settings:flatnav:description'] = 'If checked, a link to the Roster report will be added to the Boost flat navigation.
-(Under older themes like More, it will appear in the Navigation block under Current course > {coursename}.)';
-$string['settings:flatnav_position'] = 'Position in flat navigation';
-$string['settings:flatnav_position:description'] = 'A link to the report will be added *above* the link at the top of this list.
-If not found, it will try the next in the list, and so on. The first word on each line is the link identifier; everything afterward
-is ignored (so that the identifiers can be labelled). The main course navigation nodes are included by default; the identifiers for
-additional nodes can be obtained by looking at the `data-key` property of the relevant `<a>`.';
-$string['settings:flatnav_position:default'] = "
-badgesview (Badges)
-competencies (Competencies)
-grades (Grades)
-participants (Participants)
-";
-$string['settings:headings:flatnav'] = 'Flat Navigation Settings';
 $string['settings:headings:general'] = 'General Settings';
 $string['settings:headings:size'] = 'User Image Size Settings';
 $string['settings:size_default'] = 'Default size';

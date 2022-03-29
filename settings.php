@@ -46,26 +46,6 @@ if ($ADMIN->fulltree) {
         )
     );
 
-    $settings->add(
-        new admin_setting_heading('flatnav', get_string('settings:headings:flatnav', 'report_roster'), '')
-    );
-
-    $settings->add(
-        new admin_setting_configcheckbox('report_roster/flatnav',
-            get_string('settings:flatnav', 'report_roster'),
-            get_string('settings:flatnav:description', 'report_roster'),
-            0
-        )
-    );
-
-    $settings->add(
-        new admin_setting_configtextarea('report_roster/flatnav_position',
-            get_string('settings:flatnav_position', 'report_roster'),
-            get_string('settings:flatnav_position:description', 'report_roster'),
-            get_string('settings:flatnav_position:default', 'report_roster')
-        )
-    );
-
     $options = array(
         'small'  => get_string('size:small', 'report_roster'),
         'medium' => get_string('size:medium', 'report_roster'),
