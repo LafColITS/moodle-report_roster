@@ -16,7 +16,6 @@
 /**
  * This file contains an AMD/jQuery module which supports learning mode.
  *
- * @package    report_roster
  * @copyright  2018 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
