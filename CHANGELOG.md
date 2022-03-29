@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Rebuild amd module
+- Drop support for Moodle 4.0+
+
 ## 3.11.0 (May 19, 2021)
 
 - [Bugfix] Update internal API in light of [MDL-45242](https://tracker.moodle.org/browse/MDL-45242)
