@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Fixup version information (thanks @jrm-unamur)
+- Updated tests for [MDL-74276](https://tracker.moodle.org/browse/MDL-74276)
+
 ## 4.0.0 (March 29, 2022)
 
 - Remove support for flat navigation
