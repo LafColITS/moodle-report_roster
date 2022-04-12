@@ -47,7 +47,7 @@ Feature: In the roster report a teacher may filter by various parameters
     Given I log in as "teacher0"
     And I am on "Course 1" course homepage
     And I navigate to "Reports" in current page administration
-    And I select "Roster" from the "Report type" singleselect
+    And I click on "Roster" "link"
     And I should see "Sally Student"
     And I should see "Sean Student"
     And I should see "Steve Student"
@@ -89,7 +89,7 @@ Feature: In the roster report a teacher may filter by various parameters
     Given I log in as "teacher0"
     And I am on "Course 1" course homepage
     And I navigate to "Reports" in current page administration
-    And I select "Roster" from the "Report type" singleselect
+    And I click on "Roster" "link"
     And I should see "Terry Teacher"
     And I should see "Tanya TA"
     And I should see "Travis TA"
@@ -130,7 +130,7 @@ Feature: In the roster report a teacher may filter by various parameters
     Given I log in as "teacher0"
     And I am on "Course 1" course homepage
     And I navigate to "Reports" in current page administration
-    And I select "Roster" from the "Report type" singleselect
+    And I click on "Roster" "link"
     And I should see "Terry Teacher"
     And I should see "Tanya TA"
     And I should see "Travis TA"

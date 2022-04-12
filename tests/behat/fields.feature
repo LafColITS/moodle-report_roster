@@ -26,7 +26,7 @@ Feature: An administrator may configure the displayed profile fields
     Given I log in as "admin"
     And I am on "Course 1" course homepage
     And I navigate to "Reports" in current page administration
-    And I select "Roster" from the "Report type" singleselect
+    And I click on "Roster" "link"
     Then I should see "Harry Potter"
     Then I should see "Hermione Granger"
     Then I should see "Runil Wazlib"
@@ -40,7 +40,7 @@ Feature: An administrator may configure the displayed profile fields
     """
     And I am on "Course 1" course homepage
     And I navigate to "Reports" in current page administration
-    And I select "Roster" from the "Report type" singleselect
+    And I click on "Roster" "link"
     Then I should not see "Harry Potter"
     Then I should not see "Hermione Granger"
     Then I should not see "Runil Wazlib"

@@ -22,7 +22,7 @@ Feature: In the roster report a teacher may toggle the display of names
     Given I log in as "teacher1"
     And I am on "Course 1" course homepage
     And I navigate to "Reports" in current page administration
-    And I select "Roster" from the "Report type" singleselect
+    And I click on "Roster" "link"
     Then I should see "Sally Student"
     And I should see "Learning mode off"
     When I press "Learning mode off"
