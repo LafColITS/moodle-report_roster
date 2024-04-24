@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Dropped support for Moodle 4.0
+
 ## 4.0.1 (April 12, 2022)
 
 - Fixup version information (thanks @jrm-unamur)
