@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -36,6 +35,7 @@ require_once(dirname(__FILE__) . '/../locallib.php');
  *
  * @package    report_roster
  * @category   test
+ * @coversFunction report_roster_profile_fields_query
  * @copyright  2024 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
