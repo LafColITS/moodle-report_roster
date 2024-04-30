@@ -22,8 +22,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
-
 define('ROSTER_MODE_DISPLAY', 'display');
 define('ROSTER_MODE_PRINT', 'print');
 
@@ -198,6 +196,11 @@ function report_roster_profile_fields_query() {
     $fieldsconfig = explode("\n", get_config('report_roster', 'fields'));
     foreach ($fieldsconfig as $field) {
         $field = trim($field);
+
+        // Explicitly exclude username from the database query.
+        if ($field === 'username') {
+            continue;
+        }
 
         if ( property_exists($USER, $field)) {
             $extrafields[] = $field;

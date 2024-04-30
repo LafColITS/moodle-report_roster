@@ -24,8 +24,6 @@
 
 namespace report_roster\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy subsystem for report_roster implementing null_provider.
  *
