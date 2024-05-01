@@ -197,6 +197,11 @@ function report_roster_profile_fields_query() {
     foreach ($fieldsconfig as $field) {
         $field = trim($field);
 
+        // Explicitly exclude username from the database query.
+        if ($field === 'username') {
+            continue;
+        }
+
         if ( property_exists($USER, $field)) {
             $extrafields[] = $field;
         }
