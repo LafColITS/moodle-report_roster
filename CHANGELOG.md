@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.1 (June 4, 2024)
+
+- [Bugfix] Actually exclude `fullname` from enrolled user query
+
 ## 4.1.0 (May 1, 2024)
 
 - [Bugfix] Explicitly exclude `fullname` from enrolled user query
