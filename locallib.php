@@ -197,8 +197,8 @@ function report_roster_profile_fields_query() {
     foreach ($fieldsconfig as $field) {
         $field = trim($field);
 
-        // Explicitly exclude username from the database query.
-        if ($field === 'username') {
+        // Explicitly exclude fullname from the database query.
+        if ($field === 'fullname') {
             continue;
         }
 
