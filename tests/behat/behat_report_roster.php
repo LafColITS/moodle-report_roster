@@ -53,7 +53,7 @@ class behat_report_roster extends behat_base {
     public function i_create_a_dummy_custom_profile_field() {
         global $DB;
 
-        if ($DB->record_exists('user_info_field', array('shortname' => 'test_custom_field'))) {
+        if ($DB->record_exists('user_info_field', ['shortname' => 'test_custom_field'])) {
             return;
         }
 
@@ -76,7 +76,7 @@ class behat_report_roster extends behat_base {
     public function i_set_the_custom_profile_field_to_for_user($field, $value, $user) {
         global $DB;
 
-        $fielddata = $DB->get_record('user_info_field', array('shortname' => $field));
+        $fielddata = $DB->get_record('user_info_field', ['shortname' => $field]);
         $user = $DB->get_record('user', array('username' => $user));
 
         if (!empty($fielddata) && !empty($user)) {
@@ -85,10 +85,10 @@ class behat_report_roster extends behat_base {
             $data->fieldid = $fielddata->id;
             $data->data = $value;
 
-            $existing = $DB->get_record('user_info_data', array(
+            $existing = $DB->get_record('user_info_data', [
                 'userid' => $user->id,
                 'fieldid' => $fielddata->id,
-            ));
+            ]);
 
             if (!empty($existing)) {
                 $data->id = $existing->id;

@@ -31,18 +31,18 @@ $group    = optional_param('group', 0, PARAM_INT);
 $role     = optional_param('role', 0, PARAM_INT);
 $autosize = report_roster_resolve_auto_size();
 $size     = optional_param('size', $autosize, PARAM_INT);
-$course   = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+$course   = $DB->get_record('course', ['id' => $id], '*', MUST_EXIST);
 
 require_login($course);
 
 // Setup page.
-$PAGE->set_url('/report/roster/index.php', array('id' => $id));
+$PAGE->set_url('/report/roster/index.php', ['id' => $id]);
 if ($mode === ROSTER_MODE_PRINT) {
     $PAGE->set_pagelayout('print');
 } else {
     $PAGE->set_pagelayout('report');
 }
-$returnurl = new moodle_url('/course/view.php', array('id' => $id));
+$returnurl = new moodle_url('/course/view.php', ['id' => $id]);
 
 // Check permissions.
 $coursecontext = context_course::instance($course->id);
@@ -72,7 +72,7 @@ if ($role > 0) {
 // Get suspended users.
 $suspended = get_suspended_userids($coursecontext);
 
-$data = array();
+$data = [];
 $fields = explode("\n", get_config('report_roster', 'fields'));
 foreach ($userlist as $user) {
     // If user is suspended, skip them.
@@ -81,7 +81,7 @@ foreach ($userlist as $user) {
     }
 
     // Get user picture and profile data.
-    $item = $OUTPUT->user_picture($user, array('size' => $size, 'courseid' => $course->id));
+    $item = $OUTPUT->user_picture($user, ['size' => $size, 'courseid' => $course->id]);
     profile_load_data($user);
 
     // Loop through configured display fields and add them.
@@ -100,15 +100,15 @@ $PAGE->requires->js_call_amd('report_roster/roster', 'init');
 
 // Display the roster to the user.
 echo $OUTPUT->header();
-echo html_writer::tag('button', get_string('learningmodeoff', 'report_roster'), array('id' => 'report-roster-toggle'));
+echo html_writer::tag('button', get_string('learningmodeoff', 'report_roster'), ['id' => 'report-roster-toggle']);
 
-$currentparams = array(
+$currentparams = [
     'group' => $group,
     'role'  => $role,
     'size'  => $size,
-    'mode'  => $mode
-);
+    'mode'  => $mode,
+];
 echo report_roster_output_action_buttons($id, $PAGE->url, $currentparams);
 
-echo html_writer::alist($data, array('class' => 'report-roster'));
+echo html_writer::alist($data, ['class' => 'report-roster']);
 echo $OUTPUT->footer();

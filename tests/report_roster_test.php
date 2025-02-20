@@ -61,7 +61,7 @@ class report_roster_test extends \advanced_testcase {
             'u.imagealt',
             'u.email',
             'u.username',
-            'u.timezone'
+            'u.timezone',
         ];
         $fieldstofetch = report_roster_profile_fields_query();
         $this->assertEquals(implode(',', $expectedfields), $fieldstofetch);

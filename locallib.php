@@ -34,7 +34,7 @@ define('ROSTER_MODE_PRINT', 'print');
  */
 function report_roster_get_options_group($id) {
     $groupsfromdb = groups_get_all_groups($id);
-    $groups = array(0 => get_string('allusers', 'report_roster'));
+    $groups = [0 => get_string('allusers', 'report_roster')];
     foreach ($groupsfromdb as $key => $value) {
         $groups[$key] = $value->name;
     }
@@ -55,7 +55,7 @@ function report_roster_get_options_role($id) {
     $rolesfromdb   = get_roles_used_in_context($context);
     $viewableroles = get_viewable_roles($context, $USER->id);
 
-    $roles = array(0 => get_string('allusers', 'report_roster'));
+    $roles = [0 => get_string('allusers', 'report_roster')];
     foreach ($rolesfromdb as $role) {
         $rolename = $viewableroles[$role->id];
         if ($rolename) {
@@ -72,9 +72,9 @@ function report_roster_get_options_role($id) {
  * @return array The user image size options
  */
 function report_roster_get_options_size() {
-    $sizes = array();
+    $sizes = [];
 
-    foreach (array('small', 'medium', 'large') as $size) {
+    foreach (['small', 'medium', 'large'] as $size) {
         $pixels = (int) get_config('report_roster', "size_$size");
         $label  = get_string("size:$size", 'report_roster');
 
@@ -97,20 +97,21 @@ function report_roster_get_options_size() {
 function report_roster_output_action_buttons($id, $url, $params) {
     global $OUTPUT;
 
-    $options = array();
-    $options['mode']   = array(
+    $options = [];
+    $options['mode'] = [
         ROSTER_MODE_DISPLAY => get_string('webmode', 'report_roster'),
-        ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'));
+        ROSTER_MODE_PRINT => get_string('printmode', 'report_roster'),
+    ];
     $options['group'] = report_roster_get_options_group($id);
     $options['role']  = report_roster_get_options_role($id);
     $options['size']  = report_roster_get_options_size($id);
 
     // If there's only one size, don't bother displaying the select.
     if (count($options['size']) <= 1) {
-        $options['size'] = array();
+        $options['size'] = [];
     }
 
-    $selects = array();
+    $selects = [];
     foreach ($params as $key => $val) {
         if (array_key_exists($key, $options) && !empty($options[$key])) {
             $myurl      = clone $url;
@@ -172,7 +173,7 @@ function report_roster_resolve_auto_size() {
         return (int) $defaultsize;
     } else {
         // Otherwise, check the other size options and return the first non-zero one.
-        foreach (array('small', 'medium', 'large') as $selector) {
+        foreach (['small', 'medium', 'large'] as $selector) {
             $size = get_config('report_roster', 'size_' . $selector);
             if ($size != 0) {
                 return $size;

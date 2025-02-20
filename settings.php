@@ -46,11 +46,11 @@ if ($ADMIN->fulltree) {
         )
     );
 
-    $options = array(
+    $options = [
         'small'  => get_string('size:small', 'report_roster'),
         'medium' => get_string('size:medium', 'report_roster'),
         'large'  => get_string('size:large', 'report_roster'),
-    );
+    ];
 
     $settings->add(
         new admin_setting_heading('size', get_string('settings:headings:size', 'report_roster'), '')
