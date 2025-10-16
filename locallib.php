@@ -203,7 +203,7 @@ function report_roster_profile_fields_query() {
             continue;
         }
 
-        if ( property_exists($USER, $field)) {
+        if (property_exists($USER, $field)) {
             $extrafields[] = $field;
         }
     }

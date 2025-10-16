@@ -24,8 +24,8 @@
 
 require_once(__DIR__ . '/../../../../lib/behat/behat_base.php');
 
-use Behat\Behat\Context\Step\Given as Given;
-use Behat\Gherkin\Node\PyStringNode as PyStringNode;
+use Behat\Behat\Context\Step\Given;
+use Behat\Gherkin\Node\PyStringNode;
 
 /**
  * Custom step definitions
@@ -77,7 +77,7 @@ class behat_report_roster extends behat_base {
         global $DB;
 
         $fielddata = $DB->get_record('user_info_field', ['shortname' => $field]);
-        $user = $DB->get_record('user', array('username' => $user));
+        $user = $DB->get_record('user', ['username' => $user]);
 
         if (!empty($fielddata) && !empty($user)) {
             $data = new stdClass();

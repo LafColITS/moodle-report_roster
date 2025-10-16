@@ -94,7 +94,7 @@ foreach ($userlist as $user) {
 }
 
 // Finish setting up page.
-$PAGE->set_title($course->shortname .': '. get_config('report_roster' , 'displayname'));
+$PAGE->set_title($course->shortname . ': ' . get_config('report_roster', 'displayname'));
 $PAGE->set_heading($course->fullname);
 $PAGE->requires->js_call_amd('report_roster/roster', 'init');
 
