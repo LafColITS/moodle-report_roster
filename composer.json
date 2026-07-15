@@ -1,0 +1,12 @@
+{
+    "name": "lafayettecollege/moodle-report_roster",
+    "description": "This is a simple report which displays the user pictures for everyone enrolled in the given course.",
+    "type": "moodle-report",
+    "require": {
+        "composer/installers": "*"
+    },
+    "license": "GPL-3.0-or-later",
+    "extra": {
+        "installer-name": "roster"
+    }
+}
