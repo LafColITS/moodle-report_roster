@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.2 (July 15, 2026)
+
+- Add composer support
+
 ## 4.1.1 (June 4, 2024)
 
 - [Bugfix] Actually exclude `fullname` from enrolled user query
