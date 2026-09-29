@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Update test support for Moodle 5.3 
+
 ## 4.1.2 (July 15, 2026)
 
 - Add composer support
