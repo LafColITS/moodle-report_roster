@@ -39,8 +39,8 @@ require_once(dirname(__FILE__) . '/../locallib.php');
  * @copyright  2024 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class report_roster_test extends \advanced_testcase {
-    public function test_enrolled_user_fetch() {
+final class report_roster_test extends \advanced_testcase {
+    public function test_enrolled_user_fetch(): void {
         $this->setAdminUser();
         $this->resetAfterTest(true);
 
